@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/monumentos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>detalles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngIf="informacion">
+    <ion-card-header>
+      <ion-card-title>
+          {{informacion.nombre_monumento}}
+       
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        {{informacion.descripcion_monumento}}
+    </ion-card-content>
+  </ion-card>
+  
+
+</ion-content>

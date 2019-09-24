@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Mi municipio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list >
+    <ion-item href="./informaciongeneral">
+      <ion-icon slot="start" color="medium" name="checkbox-outline"></ion-icon>
+      <ion-label>Información general</ion-label>
+    </ion-item>
+    <ion-item href="./nuestrossimbolos">
+      <ion-icon slot="start" color="medium" name="flag"></ion-icon>
+      <ion-label>Nuestros simbolos</ion-label>
+    </ion-item>
+    <ion-item href="./directivosyfuncionarios">
+      <ion-icon slot="start" color="medium" name="people"></ion-icon>
+      <ion-label>Directivos y funcionarios</ion-label>
+    </ion-item>
+    <ion-item href="http://www.alcaldianeiva.gov.co/Paginas/default.aspx">
+      <ion-icon slot="start" color="medium" name="home"></ion-icon>
+      <ion-label>Portal web de la alcaldía</ion-label>
+    </ion-item>
+  </ion-list>
+  <!--
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title }}</b>
+    </div>
+  -->
+</ion-content>

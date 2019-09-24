@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button ></ion-menu-button>
+      </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-img src="assets/icon/NEIVA TRAVEL-02.png" class="center"></ion-img>
+    <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input ngModel type="email" name="email"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input ngModel type="password" name="password"></ion-input>
+      </ion-item>
+    
+      <p text-right>Forgot Password?</p>
+    
+      <ion-button type="submit" expand="full" color="primary">Login</ion-button>
+    </form>
+    <p text-center>Don't have a account?</p>
+    <ion-button expand="full" color="danger" (click)="register()">Register</ion-button>
+  </ion-content>

@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Monumentos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item button *ngFor= "let monumento of items" [routerLink]="['/','monumentos',monumento.id_monumentos]">
+      {{monumento.nombre_monumento}}
+    </ion-item>
+  </ion-list>
+</ion-content>
