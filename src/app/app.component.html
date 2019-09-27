@@ -17,10 +17,17 @@
         </div>-->
 
     <div *ngIf="showSplash" class="splash">
-      <div class="spinner"></div>
+      
       <div class="img-loader">
-          <ion-img src="assets/icon/NEIVA TRAVEL-02.png"></ion-img><br> 
-          <ion-img src="assets/icon/municipio.png" style="margin-top: 75%"></ion-img>
+          <ion-img src="assets/icon/NEIVA TRAVEL-02.png"></ion-img> 
+          <div class="spinner">  <!--Comentar para mostrar la otra parte que queda infinito-->
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+          </div>
+          <ion-img src="assets/icon/municipio.png" style="margin-bottom: 25%"></ion-img>
       </div>
     </div>
     <ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
@@ -29,9 +36,16 @@
     <ion-menu>
       <ion-header>
         <ion-toolbar>
-          <!--<ion-title>Neiva Travel</ion-title>-->
-          <ion-img src="assets/icon/NEIVA TRAVEL-01.png" style="height: auto; max-width: 23vh;margin-left: 35%;" ></ion-img>
-         
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                  <ion-img src="assets/icon/NEIVA TRAVEL-03.png" style="height: 60px; width: 60px;margin-left: 5%" ></ion-img>
+              </ion-col>
+              <ion-col>
+                  <ion-img src="assets/icon/NEIVA TRAVEL-01.png" style="height: auto; max-width: 23vh; margin-left: -50%; margin-top: 20px " ></ion-img>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-toolbar>
       </ion-header>
       <ion-content>
