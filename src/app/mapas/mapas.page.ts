@@ -30,34 +30,35 @@ export class MapasPage implements OnInit {
       // resp.coords.latitude
       // resp.coords.longitude
 
-    const coords = `${ resp.coords.latitude },${resp.coords.longitude}`;
-    console.log(coords);
+      this.lat = parseFloat(`${ resp.coords.latitude }`); 
+      this.lng = parseFloat(`${resp.coords.longitude}`);
 
-     }).catch((error) => {
-       console.log('Error getting location', error);
-     });
+      // const coords = `${ resp.coords.latitude },${resp.coords.longitude}`;
+
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [ this.lng, this.lat],
+        zoom : 15
+      });
+  
+      const marker = new mapboxgl.Marker()
+        .setLngLat ( [ this.lng, this.lat] )
+        .addTo ( map );
+
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
      
-     let watch = this.geolocation.watchPosition();
-     watch.subscribe((data) => {
-      // data can be a set of coordinates, or an error (if an error occurred).
-      // data.coords.latitude
-      // data.coords.longitude
-     });
-
-    
-      
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((data) => {
+    // data can be a set of coordinates, or an error (if an error occurred).
+    // data.coords.latitude
+    // data.coords.longitude
+    }); 
 
     mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmNhc3Rhbm8xOTk2IiwiYSI6ImNqeHcwamtxazBhb2IzZHM1aDM1MjU3NXgifQ.jOYskU4ZN3f1oBuL4QORZg';
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [ this.lng, this.lat],
-      zoom : 15
-    });
-
-    const marker = new mapboxgl.Marker()
-      .setLngLat ( [ this.lng, this.lat] )
-      .addTo ( map );
+    
   }
 
   

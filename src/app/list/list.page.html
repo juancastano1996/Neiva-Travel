@@ -10,23 +10,16 @@
 </ion-header>
 
 <ion-content >
-  <ion-list>
-    <ion-item *ngFor="let item of items" (click)=click()>
-        <div class="item-note">
-          {{item.descripcion | slice: 0: oculto}}
-
-        </div>
-        
-    <!--
-    <ion-item *ngFor="let item of items">
+  <ion-item (click)="cambiarTexto()">
       <div class="item-note">
-        {{item.descripcion | slice: 0: oculto}}...
-        <ion-label color="primary"
-        (click)="oculto = 100"
-        *ngIf="oculto !== 100">ver mas </ion-label>
-      </div>-->
+        {{ oculto }}
+      </div>
+  </ion-item>
 
-    </ion-item>
-  </ion-list>  
+  <ion-item *ngIf="!mostrar" (click)="cambiarTexto()">
+      <div class="item-note">
+        {{ oculto }}
+      </div>
+  </ion-item>
   
 </ion-content>

@@ -13,26 +13,24 @@ export class ListPage implements OnInit {
     descripcion: string;
   }> = [];
 
-  numero = false;
+  mostrar = true;
 
-  oculto = 15;
+  oculto = 'Texto 1';
 
   constructor() {
-    this.items.push ({
-      descripcion:'dafneianfnioueawhbdfeoiuafdsafeasfmeas fskjasfneka efasefa'
-    });
+    //const descripcion:'dafneianfnioueawhbdfeoiuafdsafeasfmeas fskjasfneka efasefa'
   }
 
-  click(){
-    if(this.numero = false){
-      this.oculto = 15;
-      this.numero = true;
-    }else{
-      this.numero = false;
-      this.oculto = 150;
-    
+  cambiarTexto() {
+    if(this.mostrar) {
+      this.oculto = 'Texto 2';
+      this.mostrar = false;
+      console.log('Texto cambiado');
+    }else {
+      this.oculto = 'Texto 1';
+      this.mostrar = true;
     }
-  };
+  }
 
   ngOnInit() {
   }
