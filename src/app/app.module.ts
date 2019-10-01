@@ -16,6 +16,8 @@ import { ProveedorService } from './proveedor/proveedor.service';
 import { InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import { VideoPlayer } from '@ionic-native/video-player/ngx'; 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 @NgModule({
@@ -25,12 +27,14 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     StatusBar,
     //CallNumber,
     SplashScreen,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ProvidersService,
     ProveedorService,

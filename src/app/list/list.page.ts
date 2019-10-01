@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-list',
@@ -6,29 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
+
+  public items: Array<{
+    descripcion: string;
+  }> = [];
+
+  numero = false;
+
+  oculto = 15;
+
   constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+    this.items.push ({
+      descripcion:'dafneianfnioueawhbdfeoiuafdsafeasfmeas fskjasfneka efasefa'
+    });
   }
+
+  click(){
+    if(this.numero = false){
+      this.oculto = 15;
+      this.numero = true;
+    }else{
+      this.numero = false;
+      this.oculto = 150;
+    
+    }
+  };
 
   ngOnInit() {
   }

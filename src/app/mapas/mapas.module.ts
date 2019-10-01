@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { MapasPage } from './mapas.page';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   imports: [
