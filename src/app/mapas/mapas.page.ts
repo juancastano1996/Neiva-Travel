@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Map, tileLayer, marker } from 'leaflet';
-import * as Leaflet from 'leaflet';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { Response } from 'selenium-webdriver/http';
 
 declare var mapboxgl: any;
 
@@ -14,16 +11,10 @@ declare var mapboxgl: any;
 export class MapasPage implements OnInit {
 
   constructor(private geolocation: Geolocation){}
-
-  post = {
-    coords:null
-  }
   
-  
-  lat = 2.914670;
-  lng = -75.272863;
-   
-  
+  lat = 0.0;
+  lng = 0.0;
+ 
   ngOnInit() {
 
     this.geolocation.getCurrentPosition().then((resp) => {
@@ -31,9 +22,12 @@ export class MapasPage implements OnInit {
       // resp.coords.longitude
 
       this.lat = parseFloat(`${ resp.coords.latitude }`); 
-      this.lng = parseFloat(`${resp.coords.longitude}`);
+      this.lng = parseFloat(`${ resp.coords.longitude }`);
 
       // const coords = `${ resp.coords.latitude },${resp.coords.longitude}`;
+
+      var popup = new mapboxgl.Popup({ offset: 25 })
+      .setHTML('<p>ud se encontro</p> <img src="/assets/Neiva/galeria2296.jpg">');
 
       var map = new mapboxgl.Map({
         container: 'map',
@@ -42,9 +36,11 @@ export class MapasPage implements OnInit {
         zoom : 15
       });
   
-      const marker = new mapboxgl.Marker()
+      const marker = new mapboxgl.Marker({color: 'red'})
         .setLngLat ( [ this.lng, this.lat] )
+        .setPopup(popup)
         .addTo ( map );
+        
 
     }).catch((error) => {
       console.log('Error getting location', error);

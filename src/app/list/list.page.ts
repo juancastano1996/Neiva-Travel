@@ -9,26 +9,111 @@ import { MatSliderModule } from '@angular/material/slider';
 })
 export class ListPage implements OnInit {
 
-  public items: Array<{
-    descripcion: string;
-  }> = [];
-
   mostrar = true;
+  mostrar1= true;
+  mostrar2= true;
+  mostrar3= true;
+  mostrar4= true;
 
-  oculto = 'Texto 1';
-
-  constructor() {
-    //const descripcion:'dafneianfnioueawhbdfeoiuafdsafeasfmeas fskjasfneka efasefa'
-  }
+  constructor() { }
 
   cambiarTexto() {
     if(this.mostrar) {
-      this.oculto = 'Texto 2';
+      this.mostrar1 = true;
       this.mostrar = false;
-      console.log('Texto cambiado');
+      this.mostrar2 = true;
+      this.mostrar4 = true;
+      this.mostrar3 = true;
     }else {
-      this.oculto = 'Texto 1';
       this.mostrar = true;
+      this.mostrar2 = true;
+      this.mostrar4 = true;
+      this.mostrar3 = true;
+    }
+  }
+
+  cambiarTexto1() {
+    if(this.mostrar1) {
+      this.mostrar = true;
+      this.mostrar1 = false;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+    }else {
+      this.mostrar = true;
+      this.mostrar1 = true;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+
+    }
+  }
+  
+  cambiarTexto2() {
+    if(this.mostrar1) {
+      this.mostrar = true;
+      this.mostrar1 = true;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+    }else {
+      this.mostrar = true;
+      this.mostrar1 = false;
+      this.mostrar2 = true;
+      this.mostrar3 = false;
+      this.mostrar4 = true;
+
+    }
+  }
+
+  cambiarTexto3() {
+    if(this.mostrar1) {
+      this.mostrar = true;
+      this.mostrar1 = false;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+    }else {
+      this.mostrar = true;
+      this.mostrar1 = false;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+
+    }
+  }
+
+  cambiarTexto4() {
+    if(this.mostrar1) {
+      this.mostrar = true;
+      this.mostrar1 = false;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = false;
+    }else {
+      this.mostrar = true;
+      this.mostrar1 = false;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = false;
+
+    }
+  }
+
+  cambiarTexto5() {
+    if(this.mostrar1) {
+      this.mostrar = true;
+      this.mostrar1 = false;
+      this.mostrar2 = false;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+    }else {
+      this.mostrar = true;
+      this.mostrar1 = false;
+      this.mostrar2 = false;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+
     }
   }
 

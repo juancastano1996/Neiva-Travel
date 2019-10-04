@@ -47,6 +47,7 @@
     "ionic-calendar": "^1.0.6",
     "ionic2-calendar": "^0.5.2",
     "leaflet": "^1.5.1",
+    "maki": "^2.1.0",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.2",
     "tslib": "^1.9.0",

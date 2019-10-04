@@ -11,14 +11,104 @@
 
 <ion-content >
   <ion-item (click)="cambiarTexto()">
+      <ion-icon slot="start" src="/assets/icon/svg/binoculars.svg"></ion-icon>
       <div class="item-note">
-        {{ oculto }}
+        <ion-title>Información general</ion-title>
       </div>
   </ion-item>
 
   <ion-item *ngIf="!mostrar" (click)="cambiarTexto()">
       <div class="item-note">
-        {{ oculto }}
+        <ion-img src="/assets/Neiva/galeria2296.jpg"></ion-img>
+        <p>ffdsfles fnodnfdnfenadfnek fdlkfnkleka</p>
+      </div>
+  </ion-item>
+
+  <ion-item (click)="cambiarTexto1()">
+      <div class="item-note">
+        <ion-title>Nuestros simbolos</ion-title>
+      </div>
+  </ion-item>
+
+  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto5()">
+      <div class="item-note">
+        <ion-title>Escudo</ion-title>
+      </div>
+  </ion-item>
+
+  <ion-item *ngIf="!mostrar2" (click)="cambiarTexto3()">
+      <div class="item-note">
+        <ion-img src="/assets/Neiva/Escudo.jpg" style="height: 50%; width: 50%;" class="center" ></ion-img>
+        <p align="justify">
+          El escudo de la ciudad será de figura suiza modificada a la española, 
+          terciado en la faja siendo la intermedia menor con las siguientes características:
+        </p>
+        <p align="justify">
+          En la faja superior sobre azar una serranía ensable coronda por tres picos en plata, 
+          que representa al río M​agdalena, padre de la nacionalidad y una embarcación indígena 
+          en sable rememora la importancia de esta arteria en el progreso de la ciudad.
+        </p>
+        <p align="justify">
+          En la faja inferior en sinople, símbolo de la riqueza agropecuaria y señal de esperanza 
+          en el porvenir, lleva un cercado de oro que recuerda su categoría de capital provincial 
+          desde su nacimiento y en su parte inferior palmeras en oro recuerdan “la gentil calentana” 
+          evocada por el cantor José Eustacio Rivera, una bordadura anglesada en oro simboliza la nobleza, 
+          honradez​, laboriosidad y hospitalidad que caracteriza a sus hijos.
+        </p>
+        <p align="justify">
+          Timbrando al escudo una corona de oro recuerda la fundación de la ciudad bajo el patrocinio de la 
+          limpia concepción del valle de Neiva.
+        </p>
+        <p align="justify">
+          ​Decreto 416 del 30 de noviembre de 1977 por medio del cual se adopta el escudo de Neiva
+        </p>
+      </div>
+  </ion-item>
+
+  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()">
+      <div class="item-note">
+        <ion-title>Bandera</ion-title>
+      </div>
+  </ion-item>
+
+  <ion-item *ngIf="!mostrar3" (click)="cambiarTexto3()">
+      <div class="item-note">
+        <ion-img src="/assets/Neiva/bandera.png" style="height: 50%; width: 50%;" class="center" ></ion-img>
+        <p align="justify">
+          La primera franja o superior es de color rojo y simboliza el valor, arrojo y amor a la libertad 
+          del pueblo huilense.
+        </p>
+        <p align="justify">
+          La segunda franja o central es de color verde como homenaje al hombre, al trabajo, al esfuerzo creador 
+          de las letras, las artes y la cultura de la tierra y como símbolo de esperanza.
+        </p>
+        <p align="justify">
+          La tercera franja o inferior es de color amarillo, y expresa la nobleza, liderazgo y espiritualidad del 
+          neivano así como la riqueza natural de su territorio.
+        </p>
+        <p align="justify">
+          Cruzando la bandera de adentro hacia afuera y hacia arriba llevará​ una flecha indígena en negro que 
+          representa el espíritu de superación de nuestra raza.
+        </p>
+        <p align="justify">
+          Decreto 210 del 06 de diciembre de 1967 por medio del cual se adopta la bandera de Neiva​
+        </p>
+      </div>
+  </ion-item>
+  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto4()">
+      <div class="item-note">
+        <ion-title>Himno</ion-title>
+      </div>
+  </ion-item>
+  <ion-item *ngIf="!mostrar4" (click)="cambiarTexto3()">
+      <div class="item-note">
+        <ion-img src="/assets/Neiva/bandera.png" style="height: 50%; width: 50%;" class="center" ></ion-img>
+        <p align="justify">
+          Fue compuesto por los sacerdotes salesianos Alfonso Arboleda Méndez y Andrés Rosa Summa, autores de la 
+          letra y música respectivamente. La canción resultó ganadora de un concurso realizado con motivo de la 
+          celebración del IV centenario de la primera fundación de la ciudad, el 8 de diciembre de 1939, por el 
+          gobierno municipal, pero no fue sino hasta 1997 que se decretó como himno oficial de la ciudad.
+        </p>
       </div>
   </ion-item>
   
