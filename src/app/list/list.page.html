@@ -11,26 +11,51 @@
 
 <ion-content >
   <ion-item (click)="cambiarTexto()">
-      <ion-icon slot="start" src="/assets/icon/svg/binoculars.svg"></ion-icon>
+      <ion-icon slot="start" src="/assets/icon/svg/file.svg"></ion-icon>
       <div class="item-note">
         <ion-title>Información general</ion-title>
       </div>
   </ion-item>
 
-  <ion-item *ngIf="!mostrar" (click)="cambiarTexto()">
+  <ion-item *ngIf="!mostrar" (click)="cambiarTexto7()">
       <div class="item-note">
-        <ion-img src="/assets/Neiva/galeria2296.jpg"></ion-img>
-        <p>ffdsfles fnodnfdnfenadfnek fdlkfnkleka</p>
+        <ion-title>Geografia</ion-title>
       </div>
   </ion-item>
 
+  <ion-item *ngIf="!mostrar5" (click)="cambiarTexto6()">
+    <div class="item-note">
+      <ion-img src="/assets/Neiva/bandera.png" style="height: 50%; width: 50%;" class="center" ></ion-img>
+      <p align="justify">
+        Fue compuesto por los sacerdotes salesianos Alfonso Arboleda Méndez y Andrés Rosa Summa, autores de la 
+        letra y música respectivamente. La canción resultó ganadora de un concurso realizado con motivo de la 
+        celebración del IV centenario de la primera fundación de la ciudad, el 8 de diciembre de 1939, por el 
+        gobierno municipal, pero no fue sino hasta 1997 que se decretó como himno oficial de la ciudad.
+      </p>
+    </div>
+</ion-item>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <ion-item (click)="cambiarTexto1()">
+      <ion-icon slot="start" src="/assets/icon/svg/flag-2.svg"></ion-icon>
       <div class="item-note">
         <ion-title>Nuestros simbolos</ion-title>
       </div>
   </ion-item>
 
   <ion-item *ngIf="!mostrar1" (click)="cambiarTexto5()">
+      <ion-icon slot="start" src="/assets/icon/svg/escudo-grande.svg"></ion-icon>
       <div class="item-note">
         <ion-title>Escudo</ion-title>
       </div>
@@ -59,13 +84,14 @@
           Timbrando al escudo una corona de oro recuerda la fundación de la ciudad bajo el patrocinio de la 
           limpia concepción del valle de Neiva.
         </p>
-        <p align="justify">
+        <p align="justify"><i><b>
           ​Decreto 416 del 30 de noviembre de 1977 por medio del cual se adopta el escudo de Neiva
-        </p>
+        </b></i></p>
       </div>
   </ion-item>
 
   <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()">
+      <ion-icon slot="start" src="/assets/icon/svg/flag-1.svg"></ion-icon>
       <div class="item-note">
         <ion-title>Bandera</ion-title>
       </div>
@@ -96,8 +122,9 @@
       </div>
   </ion-item>
   <ion-item *ngIf="!mostrar1" (click)="cambiarTexto4()">
+      <ion-icon slot="start" src="/assets/icon/svg/record.svg"></ion-icon>  
       <div class="item-note">
-        <ion-title>Himno</ion-title>
+      <ion-title>Himno</ion-title>
       </div>
   </ion-item>
   <ion-item *ngIf="!mostrar4" (click)="cambiarTexto3()">

@@ -27,7 +27,7 @@ export class MapasPage implements OnInit {
       // const coords = `${ resp.coords.latitude },${resp.coords.longitude}`;
 
       var popup = new mapboxgl.Popup({ offset: 25 })
-      .setHTML('<p>ud se encontro</p> <img src="/assets/Neiva/galeria2296.jpg">');
+      .setHTML('<h2>Ubicación</h2><p>Usted se encuentra aquí</p> <img src="/assets/Neiva/galeria2296.jpg" style="height: 50%; width: 50%;" class="center">');
 
       var map = new mapboxgl.Map({
         container: 'map',

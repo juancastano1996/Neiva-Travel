@@ -14,6 +14,7 @@ export class ListPage implements OnInit {
   mostrar2= true;
   mostrar3= true;
   mostrar4= true;
+  mostrar5= true;
 
   constructor() { }
 
@@ -24,11 +25,13 @@ export class ListPage implements OnInit {
       this.mostrar2 = true;
       this.mostrar4 = true;
       this.mostrar3 = true;
+      this.mostrar5 = true;
     }else {
       this.mostrar = true;
       this.mostrar2 = true;
       this.mostrar4 = true;
       this.mostrar3 = true;
+      this.mostrar5 = true;
     }
   }
 
@@ -114,6 +117,40 @@ export class ListPage implements OnInit {
       this.mostrar3 = true;
       this.mostrar4 = true;
 
+    }
+  }
+  cambiarTexto6() {
+    if(this.mostrar1) {
+      this.mostrar = false;
+      this.mostrar1 = true;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+      this.mostrar5 = true;
+    }else {
+      this.mostrar = false;
+      this.mostrar1 = true;
+      this.mostrar2 = true;
+      this.mostrar3 = true;
+      this.mostrar4 = true;
+      this.mostrar5 = true;
+    }
+  }
+  cambiarTexto7() {
+    if(this.mostrar) {
+      this.mostrar1 = true;
+      this.mostrar = false;
+      this.mostrar2 = true;
+      this.mostrar4 = true;
+      this.mostrar3 = true;
+      this.mostrar5 = true;
+    }else {
+      this.mostrar = false;
+      this.mostrar1 = true;
+      this.mostrar2 = true;
+      this.mostrar4 = true;
+      this.mostrar3 = true;
+      this.mostrar5 = false;
     }
   }
 
