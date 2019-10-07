@@ -5,31 +5,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['cultura.page.scss']
 })
 export class CulturaPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{
-    title: string;
-    note: string;
-    icon: string;
-  }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
+
+  mostrar = true;  
+  mostrar1 = true;
+  
+  constructor() {  }
+
+  cambiarTexto() {
+    if(this.mostrar) {
+      this.mostrar = false;
+      this.mostrar1 = true;
+    }
+    else{
+      this.mostrar = true;
+      this.mostrar1 = true;
+    }
+  }
+
+  cambiarTexto1(){
+    if(this.mostrar1){
+      this.mostrar = true;
+    }else{
+      this.mostrar = true;
+     
+
+    }
+  }
+
+  cambiarTexto2(){
+    if(this.mostrar1){
+      this.mostrar = true;
+      this.mostrar1 = false;
+    }else{
+      this.mostrar = true;
+      this.mostrar1 = true;
+
+    }
+  }
+  
+  cambiarTexto3(){
+    if(this.mostrar1){
+      this.mostrar1 = false;
+    }else{
+      this.mostrar1 = true;
+
     }
   }
   ngOnInit() {

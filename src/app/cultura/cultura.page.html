@@ -10,31 +10,102 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item routerLink="/dichosyrefranes">
-      <ion-icon slot="start" src="/assets/icon/svg/hombre.svg"></ion-icon>
-      <ion-label>Dichos y refranes</ion-label>
-    </ion-item>
-    <ion-item routerLink="/mitosyleyendas">
-      <ion-icon slot="start" src="/assets/icon/svg/mascara.svg"></ion-icon>
-      <ion-label>Mitos y leyendas</ion-label>
-    </ion-item>
-    <ion-item routerLink="/monumentos">
-      <ion-icon slot="start" src="/assets/icon/svg/019-landmark.svg"></ion-icon>
-      <ion-label>Monumentos</ion-label>
-    </ion-item>
-    <ion-item routerLink="/calendario">
-      <ion-icon slot="start" src="/assets/icon/svg/calendar-7.svg"></ion-icon>
-      <ion-label>Calendario de eventos</ion-label>
-    </ion-item>
-    <ion-item routerLink="/sanjuanero">
-      <ion-icon slot="start" src="/assets/icon/svg/colombiano.svg"></ion-icon>
-      <ion-label>San Juanero</ion-label>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
+
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/Neiva/cultura.jpg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>Bienvenido a la cultura de Neiva</ion-card-title>
+    </ion-card-header>
+    <div class="ion-text-justify">
+    <ion-card-content>
+      <p>Neiva lo invita a conocer y vivir experiencias unicas que le permiten estar en contacto con la naturaleza y 
+        disfrutar de bellos paisajes</p>
+    </ion-card-content>
     </div>
-  -->
+  </ion-card>
+
+  <ion-item (click)="cambiarTexto()">
+    <ion-icon slot="start" src="/assets/icon/svg/hombre.svg"></ion-icon>
+    <div>
+      <ion-label>Dichos y refranes</ion-label>
+    </div>
+  </ion-item>
+
+  <ion-item *ngIf="!mostrar" (click)="cambiarTexto1()">
+      <div class="ion-text-justify">
+          <h4><b>Religiosos</b></h4>
+          <p>
+            Tiene más plata que cura con 3 parroquias.
+          </p>
+          <p>
+            Hasta el Diablo toma caldo, cuando Cristo compra hueso
+          </p>
+        <h4><b>Gastronómicos</b></h4>
+          <p>
+            En plato ajeno la ración se ve mas grande
+          </p>
+          <p>
+            Tanto jode el perro con la garra que hasta al fin se la come
+          </p>
+        <h4><b>Mujeres</b></h4>
+        <p>
+          La mujer chiquita y tetona, la que no es puta es ladrona
+        </p>
+        <p>
+          En peleas de comadres se descubren las verdades
+        </p>
+      <h4><b>Hombres</b></h4>
+        <p>
+          En la cárcel y en el hospital se conocen a los amigos
+        </p>
+        <p>
+          Amigos y libros, buenos son pocos
+        </p>
+      <h4><b>Actitudes humanas</b></h4>
+        <p>
+          Chilla más que una camada de pollos
+        </p>
+        <p>
+          Más amarrado que casa de bahareque
+        </p>
+      <h4><b>Animales</b></h4>
+        <p>
+          Vaca ladrona no respeta portillo
+        </p>
+        <p>
+          Tiene más carne un zancudo en la punta del ala
+        </p>
+      </div>
+  </ion-item>
+
+
+  <ion-item (click)="cambiarTexto2()">
+    <ion-icon slot="start" src="/assets/icon/svg/mascara.svg"></ion-icon>
+    <div>
+      <ion-label>Mitos y leyendas</ion-label>
+    </div>
+  </ion-item>
+
+
+  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()">
+      <div class="item-note">
+        <ion-img src="/assets/Neiva/Escudo.jpg" style="height: 50%; width: 50%;" class="center" ></ion-img>
+        
+      </div>
+      <p>Prueba de mitos y leyendas</p>
+  </ion-item>
+
+  <ion-item routerLink="/monumentos">
+    <ion-icon slot="start" src="/assets/icon/svg/019-landmark.svg"></ion-icon>
+    <ion-label>Monumentos</ion-label>
+  </ion-item>
+  <ion-item routerLink="/calendario">
+    <ion-icon slot="start" src="/assets/icon/svg/calendar-7.svg"></ion-icon>
+    <ion-label>Calendario de eventos</ion-label>
+  </ion-item>
+  <ion-item routerLink="/sanjuanero">
+    <ion-icon slot="start" src="/assets/icon/svg/colombiano.svg"></ion-icon>
+    <ion-label>San Juanero</ion-label>
+  </ion-item>
 </ion-content>
