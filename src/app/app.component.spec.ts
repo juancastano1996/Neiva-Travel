@@ -77,7 +77,7 @@ describe('AppComponent', () => {
     expect(menuItems[6].getAttribute('ng-reflect-router-link')).toEqual('/nocturna');
     expect(menuItems[7].getAttribute('ng-reflect-router-link')).toEqual('/emergencias');
     expect(menuItems[8].getAttribute('ng-reflect-router-link')).toEqual('/instructivo');
-    expect(menuItems[9].getAttribute('ng-reflect-router-link')).toEqual('/landing');
+    expect(menuItems[9].getAttribute('ng-reflect-router-link')).toEqual('/login');
   });
 
 });

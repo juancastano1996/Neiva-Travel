@@ -67,7 +67,7 @@ export class AppComponent {
     },
     {
       title: 'Login',
-      url: '/landing',
+      url: '/ingreso',
       icon: 'login'
     }
   ];

@@ -108,7 +108,9 @@ const routes: Routes = [
   { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule', canActivate: [AuthGuard] },
   { path: 'aventura', loadChildren: './aventura/aventura.module#AventuraPageModule' },
   { path: 'caminatas', loadChildren: './caminatas/caminatas.module#CaminatasPageModule' },
-  { path: 'splash', loadChildren: './splash/splash.module#SplashPageModule' }
+  { path: 'splash', loadChildren: './splash/splash.module#SplashPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'ingreso', loadChildren: './ingreso/ingreso.module#IngresoPageModule' }
 ];
 
 @NgModule({
