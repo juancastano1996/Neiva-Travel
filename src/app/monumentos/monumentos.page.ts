@@ -25,7 +25,7 @@ export class MonumentosPage implements OnInit {
 
   load():void
   {
-    this.http.get('http://localhost/php/conexion/post.php')
+    this.http.get('http://localhost/php/conexion/monumentos.php')
     .subscribe((data : any) =>{
       console.dir(data);
       this.items = data;

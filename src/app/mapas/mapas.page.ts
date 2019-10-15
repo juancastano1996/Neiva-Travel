@@ -26,13 +26,6 @@ export class MapasPage implements OnInit {
  
   ngOnInit() {
 
-    this.Http.get('http://localhost/php/conexion/post.php')
-    .subscribe(result => {
-      this.informacion = result;
-      console.log(this.informacion);
-    })
-  
-
     this.geolocation.getCurrentPosition().then((resp) => {
       // resp.coords.latitude
       // resp.coords.longitude

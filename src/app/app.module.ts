@@ -18,6 +18,7 @@ import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
