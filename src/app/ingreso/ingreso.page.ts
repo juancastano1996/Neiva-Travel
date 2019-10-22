@@ -16,7 +16,17 @@ export class IngresoPage implements OnInit {
   loginUser = {
     email : '',
     password : ''
+   }
+
+
+   
+  registroUser = {
+    email : '',
+    nombre: '',
+    password : '',
+    password1 : ''
   }
+
 
   usuario = 'camilo';
   contraseña ='camilo96';
@@ -53,6 +63,14 @@ export class IngresoPage implements OnInit {
     console.log(fRegistro.valid);
   }*/
 }
+async registro( fRegistro:NgForm ){
+
+  if(this.registroUser.email == this.usuario && this.registroUser.password == this.registroUser.password1){
+    this.uiService.alertaInformativa('Usuario creado');
+  }else{
+    this.uiService.alertaInformativa('Usuario y/o contraseña incorrecta.')
+  }
+}
 
 
   mostrarRegistro(){
@@ -67,5 +85,7 @@ export class IngresoPage implements OnInit {
     this.slides.slideTo(1);
     this.slides.lockSwipes(true);
   }
+
+  
 
 }

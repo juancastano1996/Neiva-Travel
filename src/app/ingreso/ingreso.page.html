@@ -75,6 +75,7 @@
                               <ion-label>Email</ion-label>
                               <ion-input name="email" 
                                           type="email"
+                                          [(ngModel)]= "registroUser.email"
                                           required></ion-input>
                               </ion-item>
   
@@ -82,6 +83,7 @@
                               <ion-label>Nombre</ion-label>
                               <ion-input name="nombre"
                                           type="text"
+                                          [(ngModel)]= "registroUser.nombre"
                                           required></ion-input>
                               </ion-item>
   
@@ -89,12 +91,14 @@
                               <ion-label>Contraseña</ion-label>
                               <ion-input name="password"
                                           type="password"
+                                          [(ngModel)]= "registroUser.password"
                                           required></ion-input>
                               </ion-item>
                               <ion-item>
                               <ion-label>Confirmar contraseña</ion-label>
                               <ion-input name="password1"
                                           type="password"
+                                          [(ngModel)]= "registroUser.password1"
                                           required></ion-input>
                               </ion-item>
   

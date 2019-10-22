@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,10 +28,17 @@ export class UsuarioService {
     },)
   };
 
-  //registro(usuario: Usuario){}
+  registro(email:string, nombre:string, password:string, password1: string){
+    const data = {email,nombre,password,password1};
+    return new Promise( resolve=>{
+      this.http.post(`http://localhost/php/conexion/usuarios.php`,data)
+      .subscribe(resp =>{
+        console.log(resp);
 
-  async guardarToken(token:string){
-    this.token = token;
-    await this.storage.set('token',token);
+      });
+
+    });
+    
   }
+
 }
