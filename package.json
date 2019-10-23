@@ -25,6 +25,7 @@
     "@angular/router": "^7.2.2",
     "@ionic-native/calendar": "^5.10.0",
     "@ionic-native/call-number": "^4.20.0",
+    "@ionic-native/camera": "^5.15.1",
     "@ionic-native/core": "^5.12.0",
     "@ionic-native/geolocation": "^5.14.0",
     "@ionic-native/in-app-browser": "^5.12.0",
@@ -38,6 +39,7 @@
     "call-number": "^1.0.1",
     "cordova-android": "^8.0.0",
     "cordova-plugin-calendar": "^5.1.4",
+    "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-plugin-nativestorage": "^2.3.2",
@@ -52,7 +54,7 @@
     "maki": "^2.1.0",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.2",
-    "tslib": "^1.9.0",
+    "tslib": "^1.10.0",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
@@ -105,7 +107,10 @@
       "cordova-plugin-nativestorage": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-geolocation": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     },
     "platforms": [
       "android"

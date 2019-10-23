@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ProveedorService } from '../proveedor/proveedor.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
-
+const URL = environment.url;
 
 @Component({
   selector: 'app-monumentos',
@@ -25,7 +26,7 @@ export class MonumentosPage implements OnInit {
 
   load():void
   {
-    this.http.get('http://localhost/php/conexion/monumentos.php')
+    this.http.get(`${URL}/monumentos.php`)
     .subscribe((data : any) =>{
       console.dir(data);
       this.items = data;

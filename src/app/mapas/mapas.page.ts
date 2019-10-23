@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ProveedorService } from '../proveedor/proveedor.service';
 import { NavController } from '@ionic/angular';
+import { environment } from '../../environments/environment';
+
+const URL = environment.url;
 
 declare var mapboxgl: any;
 declare var MapboxGeocoder: any;
@@ -23,7 +26,7 @@ export class MapasPage implements OnInit {
 
   load():void
   {
-    this.http.get('http://localhost/php/conexion/monumentos.php')
+    this.http.get(`${URL}/monumentos.php`)
     .subscribe((data : any) =>{
       console.dir(data);
       this.items = data;

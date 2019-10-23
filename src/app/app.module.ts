@@ -19,6 +19,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera/ngx';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { IonicStorageModule } from '@ionic/storage';
     //CallNumber,
     SplashScreen,
     Geolocation,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ProvidersService,
     ProveedorService,

@@ -110,7 +110,9 @@ const routes: Routes = [
   { path: 'caminatas', loadChildren: './caminatas/caminatas.module#CaminatasPageModule' },
   { path: 'splash', loadChildren: './splash/splash.module#SplashPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'ingreso', loadChildren: './ingreso/ingreso.module#IngresoPageModule' }
+  { path: 'ingreso', loadChildren: './ingreso/ingreso.module#IngresoPageModule' },
+  { path: 'crearpost', loadChildren: './crearpost/crearpost.module#CrearpostPageModule' },
+  { path: 'actualizar-usuario', loadChildren: './actualizar-usuario/actualizar-usuario.module#ActualizarUsuarioPageModule' }
 ];
 
 @NgModule({
