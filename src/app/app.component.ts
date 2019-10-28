@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -7,6 +7,7 @@ import { ProvidersService } from './providers.service';
 import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
 import { timer } from 'rxjs';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -78,7 +79,9 @@ export class AppComponent {
     private provider: ProvidersService,
     private authService: AuthService,
     private navCtrl: NavController,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private storage : Storage,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -92,19 +95,13 @@ export class AppComponent {
       timer(10000).subscribe(()=>this.showSplash = false)
       this.authService.getToken();
     });
+    this.storage.get('session_storage').then((res)=>{
+      if(res == null){
+        this.router.navigate(['/ingreso']);
+      } else{
+        this.router.navigate(['/customer']);
+      }
+    })
   }
 
-  logout() {
-    this.authService.logout().subscribe(
-      data => {
-        this.alertService.presentToast(data['message']);        
-      },
-      error => {
-        console.log(error);
-      },
-      () => {
-        this.navCtrl.navigateRoot('/landing');
-      }
-    );
-  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { IonSlides, NavController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { PostProvider } from 'src/providers/post-provider';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-customer',
@@ -12,8 +14,10 @@ export class CustomerPage implements OnInit {
   customers : any = [];
   limit : number = 13;
   start : number = 0; 
+  username:string;
+  anggota:any;
 
-  constructor(private router:Router,private postPvdr: PostProvider) { }
+  constructor(private router:Router,private postPvdr: PostProvider,public toastCtrl: ToastController,private storage:Storage ) { }
 
   ngOnInit() {
   }
@@ -22,6 +26,20 @@ export class CustomerPage implements OnInit {
     this.customers = [];
     this.start = 0;
     this.loadCustomer();
+    this.storage.get('session_storage').then((res)=>{
+      this.anggota=res;
+      this.username= this.anggota.username;
+    })
+  }
+
+  async prosesLogout(){
+    this.storage.clear();
+    this.router.navigate(['/ingreso']);
+    const toast = await this.toastCtrl.create({
+      message: 'Salida exitosa',
+      duration: 2000
+    });
+    toast.present();
   }
 
   addCustomer(){
