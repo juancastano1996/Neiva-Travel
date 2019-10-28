@@ -14,14 +14,14 @@ const URL = environment.url;
 export class MonumentosPage implements OnInit {
   items: any;  
 
-  ngOnInit() {
-    
+  ngOnInit():void {
+     this.load();
   }
 
-  constructor(public navCtrl:NavController,public proveedor: ProveedorService, public http: HttpClient){}
+  constructor(public navCtrl:NavController, public http: HttpClient){}
 
   ionViewWillEnter():void{
-    this.load();
+   
   }
 
   load():void

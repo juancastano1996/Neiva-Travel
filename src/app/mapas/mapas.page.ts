@@ -74,7 +74,8 @@ export class MapasPage implements OnInit {
     // Add a layer showing the places.
     var latitud = -75.277443;
     var longitud = 2.912180;
-    
+
+    //traer la informacion de la base de datos 
 
     map.addLayer({
     "id": "places",
@@ -150,7 +151,6 @@ export class MapasPage implements OnInit {
       },
         trackUserLocation: true
     }))
-
     });
   }
   ).catch((error) => {

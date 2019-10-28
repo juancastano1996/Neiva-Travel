@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
+const URL = environment.url;
 
 
 @Injectable({
@@ -12,7 +15,7 @@ export class ProveedorService {
    }
 
    GET(){
-     return this.http.get('http://localhost/php/conexion/post.php');
+     return this.http.get(`${URL}/monumentos.php`);
    }
 
 }

@@ -6,8 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ProvidersService } from './providers.service';
 import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
-import { timer } from 'rxjs/observable/timer';
-
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -90,7 +89,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      timer(10000).subscribe(()=> this.showSplash = false)
+      timer(10000).subscribe(()=>this.showSplash = false)
       this.authService.getToken();
     });
   }

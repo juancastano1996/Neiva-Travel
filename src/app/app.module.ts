@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
+import { HttpModule } from '@angular/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera/ngx';
+import { PostProvider } from '../providers/post-provider';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { Camera } from '@ionic-native/camera/ngx';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -35,6 +37,7 @@ import { Camera } from '@ionic-native/camera/ngx';
   ],
   providers: [
     StatusBar,
+    PostProvider,
     //CallNumber,
     SplashScreen,
     Geolocation,

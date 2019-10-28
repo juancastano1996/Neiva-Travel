@@ -112,7 +112,11 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'ingreso', loadChildren: './ingreso/ingreso.module#IngresoPageModule' },
   { path: 'crearpost', loadChildren: './crearpost/crearpost.module#CrearpostPageModule' },
-  { path: 'actualizar-usuario', loadChildren: './actualizar-usuario/actualizar-usuario.module#ActualizarUsuarioPageModule' }
+  { path: 'actualizar-usuario', loadChildren: './actualizar-usuario/actualizar-usuario.module#ActualizarUsuarioPageModule' },
+  { path: 'customer', loadChildren: './customer/customer.module#CustomerPageModule' },
+  { path: 'addcustomer', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
+  { path: 'addcustomer/:id/:name/:desc', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
+  { path: 'showcustomer/:id/:name/:desc', loadChildren: './showcustomer/showcustomer.module#ShowcustomerPageModule' }
 ];
 
 @NgModule({

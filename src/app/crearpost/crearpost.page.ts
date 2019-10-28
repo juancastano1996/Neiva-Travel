@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { PostsService } from '../services/posts.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 declare var mapboxgl: any;
 declare var MapboxGeocoder: any;
 declare var window: any;
+
 
 @Component({
   selector: 'app-crearpost',
@@ -13,8 +15,9 @@ declare var window: any;
   styleUrls: ['./crearpost.page.scss'],
 })
 export class CrearpostPage implements OnInit {
-
+  items: any; 
   cargandoGeo = false;
+  token: string ="fesafeeafa5215";
 
   ngOnInit() {
   }
@@ -22,18 +25,35 @@ export class CrearpostPage implements OnInit {
   tempImages: string[]=[];
 
   post={
+    id_monumento:'',
     nombre_monumento:'',
     descripcion_monumento:'',
     latitud_monumento: null,
     longitud_monumento: null,
-    posicion: false
+    imagen_monumento:null,
+    posicion: false,
   };
+  nuevoPost = new EventEmitter<PostsService>();
 
-  constructor(private postService: PostsService, private geolocation:Geolocation, private camera: Camera) { }
+  constructor(private postService: PostsService, private geolocation:Geolocation, private camera: Camera,private http: HttpClient) { }
+
 
   crearPost(){
-    console.log(this.post)
-    this.postService.crearPost(this.post);
+    const headers = new HttpHeaders({
+      'x-token': this.post.id_monumento
+    });
+
+
+    return new Promise( resolve => {
+
+    this.http.post(`${ URL }/monumentos`, this.post, { headers })
+    .subscribe(resp => {
+      this.nuevoPost.emit(resp['post']);
+      resolve(true);
+    }
+      
+    )
+    });
 
   }
 

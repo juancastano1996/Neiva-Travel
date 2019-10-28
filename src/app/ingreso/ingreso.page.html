@@ -46,7 +46,8 @@
             <ion-col>
               <ion-button type="submit"
                           color="primary"
-                          shape="round">
+                          shape="round"
+                          (click) ="processLogin()">
                 Ingresar
               </ion-button>
             </ion-col>
@@ -98,7 +99,7 @@
                               <ion-label>Confirmar contraseña</ion-label>
                               <ion-input name="password1"
                                           type="password"
-                                          [(ngModel)]= "registroUser.password1"
+                                          [(ngModel)]= "registroUser.confirm_password"
                                           required></ion-input>
                               </ion-item>
   
@@ -110,7 +111,8 @@
                   <ion-col>
                       <ion-button type="submit"
                                   color="primary"
-                                  shape="round">
+                                  shape="round"
+                                  (click)="prosesRegister()">
                           Crear usuario
                       </ion-button>
                   </ion-col>
