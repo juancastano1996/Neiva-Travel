@@ -22,13 +22,11 @@ export class IngresoPage implements OnInit {
    }
    
   registroUser = {
-    email : "",
+    email :"",
     nombre: "",
     password : "",
     confirm_password : ""
   }
-
-
 
   constructor(private usuarioService: UsuarioService,
               private navCtrl: NavController,
@@ -102,7 +100,7 @@ export class IngresoPage implements OnInit {
         duration: 2000
       });
       toast.present();
-    }else{
+    }else{ 
       let body = {
         email: this.registroUser.email,
         username: this.registroUser.nombre,
