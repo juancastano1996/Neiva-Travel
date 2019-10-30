@@ -19,6 +19,7 @@ export class AddcustomerPage implements OnInit {
   desc_customer: string = "";
   latitud_monumento: number;
   longitud_monumento: number;
+  imagen: string;
   posicion: string;
 
   id: number;
@@ -40,27 +41,32 @@ export class AddcustomerPage implements OnInit {
       this.latitud_monumento = data.lat;
       this.longitud_monumento = data.long;
       this.posicion = data.pos;
+      this.imagen = data.img;
   		console.log(data);
     });
   }
-  createdProcess(){
-    return new Promise(resolve => {
-      let body = {
-        aksi: 'add',
-        name_customer : this.name_customer,
-        desc_customer : this.desc_customer,
-        latitud_monumento : this.latitud_monumento,
-        longitud_monumento: this.longitud_monumento,
-        posicion:this.posicion
-      };
-      this.postPvdr.postData(body,'proses-api.php')
-      .subscribe(data => {
-        this.router.navigate(['/customer']);
-        console.log('ok');
-      });
+     createdProcess(){
+      if(this.name_customer != "" && this.desc_customer!==""){
+        return new Promise(resolve => {
+          let body = {
+            aksi: 'add',
+            name_customer : this.name_customer,
+            desc_customer : this.desc_customer,
+            latitud_monumento : this.latitud_monumento,
+            longitud_monumento: this.longitud_monumento,
+            posicion:this.posicion,
+            imagen: this.imagen
+          };
+          this.postPvdr.postData(body,'proses-api.php')
+          .subscribe(data => {
+            this.router.navigate(['/customer']);
+            console.log('ok');
+          });
 
-    });
-
+        });
+      }else{
+        console.log('se necesitan datos')
+    }
   }
   updateProcess(){
     return new Promise(resolve => {
@@ -71,7 +77,8 @@ export class AddcustomerPage implements OnInit {
         desc_customer : this.desc_customer,
         latitud_monumento : this.latitud_monumento,
         longitud_monumento: this.longitud_monumento,
-        posicion:this.posicion
+        posicion:this.posicion,
+        imagen: this.imagen
       };
       this.postPvdr.postData(body,'proses-api.php')
       .subscribe(data => {
