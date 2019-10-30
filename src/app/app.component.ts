@@ -97,7 +97,7 @@ export class AppComponent {
     });
     this.storage.get('session_storage').then((res)=>{
       if(res == null){
-        this.router.navigate(['/ingreso']);
+        this.router.navigate(['/mapas']);
       } else{
         this.router.navigate(['/customer']);
       }

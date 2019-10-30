@@ -14,8 +14,8 @@ export class CustomerPage implements OnInit {
   customers : any = [];
   limit : number = 13;
   start : number = 0; 
-  username:string;
-  anggota:any;
+  username : string;
+  anggota : any;
 
   constructor(private router:Router,private postPvdr: PostProvider,public toastCtrl: ToastController,private storage:Storage ) { }
 

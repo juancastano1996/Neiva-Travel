@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { IonSlides, NavController, ToastController } from '@ionic/angular';
 import { UsuarioService } from '../services/usuario.service';
 import { UiServiceService } from '../services/ui-service.service';

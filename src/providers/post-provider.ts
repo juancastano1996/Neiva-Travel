@@ -18,6 +18,3 @@ export class PostProvider{
         .map(res => res.json());
     }
 }
-
-
-   
