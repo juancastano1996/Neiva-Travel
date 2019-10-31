@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 declare var window: any;
 
@@ -21,6 +22,7 @@ export class AddcustomerPage implements OnInit {
   longitud_monumento: number;
   imagen: string;
   posicion: string;
+  tipo_user:string;
 
   id: number;
   nuevoPost = new EventEmitter<PostProvider>();
@@ -31,7 +33,8 @@ export class AddcustomerPage implements OnInit {
               private actRoute: ActivatedRoute,
               public toastCtrl: ToastController,
               private geolocation:Geolocation,
-              private camera: Camera) { }
+              private camera: Camera,
+              public fileTransfer : FileTransfer) { }
 
   ngOnInit() {
     this.actRoute.params.subscribe((data:any)=>{
@@ -42,11 +45,22 @@ export class AddcustomerPage implements OnInit {
       this.longitud_monumento = data.long;
       this.posicion = data.pos;
       this.imagen = data.img;
+      this.tipo_user = data.tipo;
   		console.log(data);
     });
   }
-     createdProcess(){
-      if(this.name_customer != "" && this.desc_customer!==""){
+    subirImagen(img: string){
+      const options: FileUploadOptions = {
+          fileKey:'image',
+        };
+      const fileTransfer: FileTransferObject = this.fileTransfer.create();
+
+      fileTransfer.upload(img,'proses-api.php',options);
+    }
+
+    createdProcess(email, tipo){
+      this.tipo_user = 'usuario';
+      if(this.name_customer != "" && this.desc_customer!==""){  
         return new Promise(resolve => {
           let body = {
             aksi: 'add',
@@ -55,11 +69,12 @@ export class AddcustomerPage implements OnInit {
             latitud_monumento : this.latitud_monumento,
             longitud_monumento: this.longitud_monumento,
             posicion:this.posicion,
-            imagen: this.imagen
+            imagen: this.imagen, 
+            tipo_user:this.tipo_user
           };
           this.postPvdr.postData(body,'proses-api.php')
           .subscribe(data => {
-            this.router.navigate(['/customer']);
+            this.router.navigate(['/customer/'+ email + '/' + tipo]);
             console.log('ok');
           });
 
@@ -67,8 +82,11 @@ export class AddcustomerPage implements OnInit {
       }else{
         console.log('se necesitan datos')
     }
+    this.tempImages = [];
   }
-  updateProcess(){
+
+  updateProcess(email, tipo){
+    this.tipo_user = 'usuario';
     return new Promise(resolve => {
       let body = {
         aksi : 'update',
@@ -82,7 +100,7 @@ export class AddcustomerPage implements OnInit {
       };
       this.postPvdr.postData(body,'proses-api.php')
       .subscribe(data => {
-        this.router.navigate(['/customer']);
+        this.router.navigate(['/customer/'+ email + '/' + tipo]);
         console.log('ok');
       });
 
@@ -154,6 +172,9 @@ export class AddcustomerPage implements OnInit {
       // If it's base64 (DATA_URL):
       const img = window.Ionic.webView.convertFileSrc(imageData);
       console.log(img);
+
+      this.subirImagen(imageData);
+
       this.tempImages.push( img );
      }, (err) => {
       // Handle error

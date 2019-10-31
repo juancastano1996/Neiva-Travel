@@ -13,18 +13,22 @@ import { Storage } from '@ionic/storage';
 })
 export class IngresoPage implements OnInit {
 
+  usuarios : any = [];
+
   @ViewChild('slidePrincipal') slides: IonSlides
 
   loginUser = {
     email : "",
-    password : ""
+    password : "",
+    tipo_user : ""
    }
    
   registroUser = {
     email :"",
     nombre: "",
     password : "",
-    confirm_password : ""
+    confirm_password : "",
+    tipo_user : ""
   }
 
   constructor(private usuarioService: UsuarioService,
@@ -38,20 +42,28 @@ export class IngresoPage implements OnInit {
   ngOnInit() {
     this.slides.lockSwipes(true);
   }
+  ionViewWillEnter(){
+    this.usuarios = [];
+    this.loadUsuarios;
+  }
 
-  async processLogin(){
-    if(this.loginUser.email!="" && this.loginUser.password!=""){
+  async processLogin(email,tipo){
+    
+    if(this.loginUser.tipo_user="usuario"){
+      if(this.loginUser.email!="" && this.loginUser.password!=""){
       let body={
         email: this.loginUser.email,
         password: this.loginUser.password,
+        tipo_user: this.loginUser.tipo_user,
         aksi:'login'
       };
+      this.loadUsuarios();
       this.postPvdr.postData(body,'proses-api.php')
       .subscribe(async data => {
         var alertmsg = data.msg;
         if(data.success){
           this.storage.set('session_storage',data.result);
-          this.router.navigate(['/customer']);
+          this.router.navigate(['/customer/'+ email + '/' + tipo]);
           const toast = await this.toastCtrl.create({
             message: 'Ingreso exitoso',
             duration: 2000
@@ -72,6 +84,60 @@ export class IngresoPage implements OnInit {
       });
       toast.present();
     }
+    }else if(this.loginUser.tipo_user = "administrador"){
+      if(this.loginUser.email!="" && this.loginUser.password!=""){
+      let body={
+        email: this.loginUser.email,
+        password: this.loginUser.password,
+        tipo_user: this.loginUser.tipo_user,
+        aksi:'login'
+      };
+      this.postPvdr.postData(body,'proses-api.php')
+      .subscribe(async data => {
+        var alertmsg = data.msg;
+        if(data.success){
+          this.storage.set('session_storage',data.result);
+          this.router.navigate(['/customer/'+ email + '/' + tipo]);
+          const toast = await this.toastCtrl.create({
+            message: 'Ingreso exitoso',
+            duration: 2000
+          });
+          toast.present();
+        }else{
+          const toast = await this.toastCtrl.create({
+            message: alertmsg,
+            duration: 2000
+          });
+          toast.present();
+        }
+      });
+    }else{
+      const toast = await this.toastCtrl.create({
+        message: 'Usuario y/o contraseña incorrectos',
+        duration: 2000
+      });
+      toast.present();
+    }
+
+    }else{
+      console.log('no tiene usuario');
+    }
+    
+  }
+  loadUsuarios(){
+    return new Promise(resolve => {
+      let body = {
+        aksi: 'getdata2'
+      };
+      this.postPvdr.postData(body,'proses-api.php')
+      .subscribe(data => {
+        for(let usuario of data.result){
+          this.usuarios.push(usuario);
+        }
+        resolve(true);
+      });
+
+    });
   }
   
   async prosesRegister(){
@@ -104,6 +170,7 @@ export class IngresoPage implements OnInit {
         email: this.registroUser.email,
         username: this.registroUser.nombre,
         password: this.registroUser.password,
+        tipo_user : 'usuario',
         aksi:'register'
       };
       this.postPvdr.postData(body,'proses-api.php')

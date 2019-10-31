@@ -88,7 +88,7 @@ export class AppComponent {
 
   showSplash = true;
 
-  initializeApp() {
+  initializeApp(email, tipo) {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -99,7 +99,7 @@ export class AppComponent {
       if(res == null){
         this.router.navigate(['/mapas']);
       } else{
-        this.router.navigate(['/customer']);
+        this.router.navigate(['/customer/'+ email + '/' + tipo]);
       }
     })
   }

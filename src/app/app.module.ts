@@ -42,6 +42,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
     //CallNumber,
     SplashScreen,
     Geolocation,
+    FileTransfer,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ProvidersService,
