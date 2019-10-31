@@ -42,8 +42,8 @@ export class CustomerPage implements OnInit {
     toast.present();
   }
 
-  addCustomer(){
-    this.router.navigate(['/addcustomer']);
+  addCustomer(email, tipo){
+    this.router.navigate(['/addcustomer/' +email + '/' + tipo]);
   }
 
   updateCustomer(id,name,desc){

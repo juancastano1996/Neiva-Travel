@@ -99,7 +99,7 @@ export class AppComponent {
       if(res == null){
         this.router.navigate(['/mapas']);
       } else{
-        this.router.navigate(['/customer/'+ email + '/' + tipo]);
+        this.router.navigate(['/customer/'+email+'/'+tipo]);
       }
     })
   }
