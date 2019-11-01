@@ -23,6 +23,7 @@ export class AddcustomerPage implements OnInit {
   imagen: string;
   posicion: string;
   tipo_user:string;
+  email: string;
 
   id: number;
   nuevoPost = new EventEmitter<PostProvider>();
@@ -45,7 +46,8 @@ export class AddcustomerPage implements OnInit {
       this.longitud_monumento = data.long;
       this.posicion = data.pos;
       this.imagen = data.img;
-      this.tipo_user = data.tipo;
+      this.tipo_user = data.tipo_user;
+      this.email = data.email;
   		console.log(data);
     });
   }
@@ -58,8 +60,7 @@ export class AddcustomerPage implements OnInit {
       fileTransfer.upload(img,'proses-api.php',options);
     }
 
-    createdProcess(email, tipo){
-      this.tipo_user = 'usuario';
+    createdProcess(email, tipo_user){
       if(this.name_customer != "" && this.desc_customer!==""){  
         return new Promise(resolve => {
           let body = {
@@ -67,14 +68,15 @@ export class AddcustomerPage implements OnInit {
             name_customer : this.name_customer,
             desc_customer : this.desc_customer,
             latitud_monumento : this.latitud_monumento,
-            longitud_monumento: this.longitud_monumento,
-            posicion:this.posicion,
-            imagen: this.imagen, 
-            tipo_user:this.tipo_user
+            longitud_monumento: this.longitud_monumento,           
+            tipo_user: this.tipo_user,
+            email: this.email
           };
           this.postPvdr.postData(body,'proses-api.php')
           .subscribe(data => {
-            this.router.navigate(['/customer/'+ email + '/' + tipo]);
+            email = this.email;
+            tipo_user = this.tipo_user;
+            this.router.navigate(['/customer/'+ email + '/' + tipo_user]);
             console.log('ok');
           });
 
@@ -85,8 +87,7 @@ export class AddcustomerPage implements OnInit {
     this.tempImages = [];
   }
 
-  updateProcess(email, tipo){
-    this.tipo_user = 'usuario';
+  updateProcess(email, tipo_user){
     return new Promise(resolve => {
       let body = {
         aksi : 'update',
@@ -100,7 +101,7 @@ export class AddcustomerPage implements OnInit {
       };
       this.postPvdr.postData(body,'proses-api.php')
       .subscribe(data => {
-        this.router.navigate(['/customer/'+ email + '/' + tipo]);
+        this.router.navigate(['/customer/'+ email + '/' + tipo_user]);
         console.log('ok');
       });
 

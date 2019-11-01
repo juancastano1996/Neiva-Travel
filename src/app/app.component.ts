@@ -88,20 +88,14 @@ export class AppComponent {
 
   showSplash = true;
 
-  initializeApp(email, tipo) {
+  initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       timer(10000).subscribe(()=>this.showSplash = false)
       this.authService.getToken();
     });
-    this.storage.get('session_storage').then((res)=>{
-      if(res == null){
-        this.router.navigate(['/mapas']);
-      } else{
-        this.router.navigate(['/customer/'+email+'/'+tipo]);
-      }
-    })
+   
   }
 
 }

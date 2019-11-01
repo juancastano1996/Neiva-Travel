@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonSlides, NavController, ToastController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PostProvider } from 'src/providers/post-provider';
 import { Storage } from '@ionic/storage';
 
@@ -12,23 +12,35 @@ import { Storage } from '@ionic/storage';
 export class CustomerPage implements OnInit {
 
   customers : any = [];
+  usuarios : any = [];
   limit : number = 13;
   start : number = 0; 
   username : string;
+  email: "";
+  tipo_user: "";
   anggota : any;
 
-  constructor(private router:Router,private postPvdr: PostProvider,public toastCtrl: ToastController,private storage:Storage ) { }
+  constructor(private router:Router,private postPvdr: PostProvider, private actRoute: ActivatedRoute, public toastCtrl: ToastController,private storage:Storage ) { }
 
   ngOnInit() {
+    this.actRoute.params.subscribe((data:any)=>{
+      this.tipo_user = data.tipo;
+      this.email = data.email;
+  		console.log(data);
+    });
   }
 
   ionViewWillEnter(){
     this.customers = [];
+    this.usuarios=[];
+    this.loadUsuarios;
     this.start = 0;
     this.loadCustomer();
     this.storage.get('session_storage').then((res)=>{
       this.anggota=res;
       this.username= this.anggota.username;
+      this.email = this.anggota.email;
+      this.tipo_user = this.anggota.tipo_user;
     })
   }
 
@@ -43,7 +55,9 @@ export class CustomerPage implements OnInit {
   }
 
   addCustomer(email, tipo){
-    this.router.navigate(['/addcustomer/' +email + '/' + tipo]);
+    email = this.email;
+    tipo = this.tipo_user;
+    this.router.navigate(['/addcustomer/' + email + '/' + tipo]);
   }
 
   updateCustomer(id,name,desc){
@@ -99,5 +113,20 @@ export class CustomerPage implements OnInit {
 
     });
   }
+ 
+  loadUsuarios(){
+    return new Promise(resolve => {
+      let body = {
+        aksi: 'getdata',
+      };
+      this.postPvdr.postData(body,'proses-api.php')
+      .subscribe(data => {
+        for(let usuario of data.result){
+          this.usuarios.push(usuario);
+        }
+        resolve(true);
+      });
 
+    });
+  }
 }

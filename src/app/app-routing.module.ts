@@ -113,8 +113,8 @@ const routes: Routes = [
   { path: 'ingreso', loadChildren: './ingreso/ingreso.module#IngresoPageModule' },
   { path: 'crearpost', loadChildren: './crearpost/crearpost.module#CrearpostPageModule' },
   { path: 'actualizar-usuario', loadChildren: './actualizar-usuario/actualizar-usuario.module#ActualizarUsuarioPageModule' },
-  { path: 'customer/:email/:tipo', loadChildren: './customer/customer.module#CustomerPageModule' },
-  { path: 'addcustomer/:email/:tipo', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
+  { path: 'customer/:email/:tipo_user', loadChildren: './customer/customer.module#CustomerPageModule' },
+  { path: 'addcustomer/:email/:tipo_user', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
   { path: 'addcustomer/:id/:name/:desc', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
   { path: 'showcustomer/:id/:name/:desc', loadChildren: './showcustomer/showcustomer.module#ShowcustomerPageModule' }
 ];
