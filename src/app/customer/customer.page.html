@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title slot="start">Monumentos</ion-title>
+    <ion-title slot="start">Sitios </ion-title>
     <ion-buttons slot="primary" (click)="addCustomer(usuarios.email, usuarios.tipo)">
       <ion-button color="primary" fill="outline">Nuevo
         <ion-icon slot="end" name="add"></ion-icon>
@@ -47,3 +47,19 @@
   </ion-infinite-scroll>
 
 </ion-content>
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+          <ion-button shape="round"
+          expand="full"
+          size="small"
+          fill="outline"
+          color="primary"
+          (click)="ingresarAdministrador()">
+            Ingresar adminstror
+          </ion-button>
+      </ion-row>
+    </ion-grid>
+    </ion-toolbar>
+</ion-footer>

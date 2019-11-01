@@ -54,10 +54,15 @@ export class CustomerPage implements OnInit {
     toast.present();
   }
 
-  addCustomer(email, tipo){
+  addCustomer(email, tipo_user){
+    
+    async data => {
+    this.storage.set('session_storage',data.result);
+
+  }
     email = this.email;
-    tipo = this.tipo_user;
-    this.router.navigate(['/addcustomer/' + email + '/' + tipo]);
+    tipo_user = this.tipo_user;
+    this.router.navigate(['/addcustomer/' + email + '/' + tipo_user]);
   }
 
   updateCustomer(id,name,desc){
@@ -76,6 +81,8 @@ export class CustomerPage implements OnInit {
   		});
 
   }
+  ingresarAdministrador(){}
+  
   showCustomer(id,name,desc){
   	this.router.navigate(['/showcustomer/' + id + '/' + name + '/' + desc]);
   }

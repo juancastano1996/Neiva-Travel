@@ -47,11 +47,11 @@ export class IngresoPage implements OnInit {
     this.loadUsuarios;
   }
 
-  async processLogin(email,tipo){    
+  async processLogin(email,tipo_user){    
     if(this.loginUser.tipo_user="usuario"){
       if(this.loginUser.email!="" && this.loginUser.password!=""){
         email = this.loginUser.email;
-        tipo = this.loginUser.tipo_user;
+        tipo_user = this.loginUser.tipo_user;
       let body={
         email: this.loginUser.email,
         password: this.loginUser.password,
@@ -64,7 +64,7 @@ export class IngresoPage implements OnInit {
         var alertmsg = data.msg;
         if(data.success){
           this.storage.set('session_storage',data.result);
-          this.router.navigate(['/customer/'+ email + '/' + tipo]);
+          this.router.navigate(['/customer/'+ email + '/' + tipo_user]);
           const toast = await this.toastCtrl.create({
             message: 'Ingreso exitoso',
             duration: 2000
@@ -88,7 +88,7 @@ export class IngresoPage implements OnInit {
     }else if(this.loginUser.tipo_user = "administrador"){
       if(this.loginUser.email!="" && this.loginUser.password!=""){
         email = this.loginUser.email;
-        tipo = this.loginUser.tipo_user;
+        tipo_user = this.loginUser.tipo_user;
       let body={
         email: this.loginUser.email,
         password: this.loginUser.password,
@@ -100,7 +100,7 @@ export class IngresoPage implements OnInit {
         var alertmsg = data.msg;
         if(data.success){
           this.storage.set('session_storage',data.result);
-          this.router.navigate(['/customer/'+ email + '/' + tipo]);
+          this.router.navigate(['/customer/'+ email + '/' + tipo_user]);
           const toast = await this.toastCtrl.create({
             message: 'Ingreso exitoso',
             duration: 2000
