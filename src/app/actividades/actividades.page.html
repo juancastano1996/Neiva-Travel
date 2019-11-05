@@ -27,13 +27,29 @@
       <ion-list-header>
         <ion-title>Actividades para realizar en Neiva</ion-title>
       </ion-list-header>
-      <ion-item routerLink="/aventura">
+      
+      <ion-item (click)="cambiarTexto()">
         <ion-icon slot="start" src="/assets/icon/svg/binoculars.svg"></ion-icon>
         <ion-label>Aventura</ion-label>
       </ion-item>
-      <ion-item routerLink="/caminatas">
+      <ion-item *ngIf="!mostrar" routerLink="/parapente">
+        <ion-label>Parapente</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar" routerLink="/rutaachira">
+        <ion-label>Ruta de la achira</ion-label>
+      </ion-item>
+      <ion-item (click)="cambiarTexto1()">
         <ion-icon slot="start" src="/assets/icon/svg/002-trekking.svg"></ion-icon>
         <ion-label>Caminatas</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar1">
+        <ion-label>Ruta natural del cacao</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar1">
+        <ion-label>Ruta natural del café</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar1">
+        <ion-label>Ruta natural de la biodiversidad</ion-label>
       </ion-item>
     </ion-list>
 </ion-content>
