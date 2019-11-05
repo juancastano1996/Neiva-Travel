@@ -119,7 +119,16 @@ const routes: Routes = [
   { path: 'showcustomer/:id/:name/:desc', loadChildren: './showcustomer/showcustomer.module#ShowcustomerPageModule' },
   { path: 'add-admin', loadChildren: './add-admin/add-admin.module#AddAdminPageModule' },
   { path: 'parapente', loadChildren: './parapente/parapente.module#ParapentePageModule' },
-  { path: 'rutaachira', loadChildren: './rutaachira/rutaachira.module#RutaachiraPageModule' }
+  { path: 'rutaachira', loadChildren: './rutaachira/rutaachira.module#RutaachiraPageModule' },  { path: 'mohan', loadChildren: './mohan/mohan.module#MohanPageModule' },
+  { path: 'mula-del-diablo', loadChildren: './mula-del-diablo/mula-del-diablo.module#MulaDelDiabloPageModule' },
+  { path: 'madre-monte', loadChildren: './madre-monte/madre-monte.module#MadreMontePageModule' },
+  { path: 'pata-sola', loadChildren: './pata-sola/pata-sola.module#PataSolaPageModule' },
+  { path: 'candileja', loadChildren: './candileja/candileja.module#CandilejaPageModule' },
+  { path: 'tunjo-de-oro', loadChildren: './tunjo-de-oro/tunjo-de-oro.module#TunjoDeOroPageModule' },
+  { path: 'hojarasquin', loadChildren: './hojarasquin/hojarasquin.module#HojarasquinPageModule' },
+  { path: 'la-llorona', loadChildren: './la-llorona/la-llorona.module#LaLloronaPageModule' },
+  { path: 'sombreron', loadChildren: './sombreron/sombreron.module#SombreronPageModule' }
+
 ];
 
 @NgModule({
