@@ -35,18 +35,6 @@
     </div>
 </ion-item>
 
-
-
-
-
-
-
-
-
-
-
-
-
   <ion-item (click)="cambiarTexto1()">
       <ion-icon slot="start" src="/assets/icon/svg/flag-2.svg"></ion-icon>
       <div class="item-note">
@@ -128,15 +116,18 @@
       </div>
   </ion-item>
   <ion-item *ngIf="!mostrar4" (click)="cambiarTexto3()">
-      <div class="item-note">
-        <ion-img src="/assets/Neiva/bandera.png" style="height: 50%; width: 50%;" class="center" ></ion-img>
-        <p align="justify">
-          Fue compuesto por los sacerdotes salesianos Alfonso Arboleda Méndez y Andrés Rosa Summa, autores de la 
-          letra y música respectivamente. La canción resultó ganadora de un concurso realizado con motivo de la 
-          celebración del IV centenario de la primera fundación de la ciudad, el 8 de diciembre de 1939, por el 
-          gobierno municipal, pero no fue sino hasta 1997 que se decretó como himno oficial de la ciudad.
-        </p>
-      </div>
+    <div class="item-note">
+      <ion-img src="/assets/Neiva/bandera.png" style="height: 50%; width: 50%;" class="center" ></ion-img>
+      <p align="justify">
+        Fue compuesto por los sacerdotes salesianos Alfonso Arboleda Méndez y Andrés Rosa Summa, autores de la 
+        letra y música respectivamente. La canción resultó ganadora de un concurso realizado con motivo de la 
+        celebración del IV centenario de la primera fundación de la ciudad, el 8 de diciembre de 1939, por el 
+        gobierno municipal, pero no fue sino hasta 1997 que se decretó como himno oficial de la ciudad.
+      </p>
+      <button type="submit"
+      color="primary"
+      shape="round" (click)="watch('ZaAXdrV0jU0')">Ver video</button>
+    </div>  
   </ion-item>
   
 </ion-content>

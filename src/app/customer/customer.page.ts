@@ -81,8 +81,7 @@ export class CustomerPage implements OnInit {
   		});
 
   }
-  ingresarAdministrador(){}
-  
+
   showCustomer(id,name,desc){
   	this.router.navigate(['/showcustomer/' + id + '/' + name + '/' + desc]);
   }

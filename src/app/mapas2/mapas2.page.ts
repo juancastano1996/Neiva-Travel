@@ -23,6 +23,7 @@ export class Mapas2Page implements OnInit {
 
   ionViewWillEnter():void{
     this.load();
+    this.geolocation.watchPosition();
   }
 
   load():void

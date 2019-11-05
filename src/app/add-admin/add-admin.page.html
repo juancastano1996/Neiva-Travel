@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear Administrador</ion-title>
+    <ion-buttons slot="primary">
+      <ion-back-button text="atras" icon="" color="primary" fill="outline"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-img src="assets/icon/NEIVA TRAVEL-02.png" class="center" style="height: 175px; width: 175px"></ion-img>          
+    <form (ngSubmit)= "registro(fRegistro)" #fRegistro="ngForm">
+        <ion-row>
+            <ion-col>
+                
+                <ion-list>
+                    
+                    <ion-item>
+                    <ion-label>Email</ion-label>
+                    <ion-input name="email" 
+                                type="email"
+                                [(ngModel)]= "registroUser.email"
+                                required
+                                pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                    <ion-label>Nombre</ion-label>
+                    <ion-input name="nombre"
+                                type="text"
+                                [(ngModel)]= "registroUser.nombre"
+                                required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                    <ion-label>Contraseña</ion-label>
+                    <ion-input name="password"
+                                type="password"
+                                [(ngModel)]= "registroUser.password"
+                                required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                    <ion-label>Confirmar contraseña</ion-label>
+                    <ion-input name="password1"
+                                type="password"
+                                [(ngModel)]= "registroUser.confirm_password"
+                                required></ion-input>
+                    </ion-item>
+
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        
+        <ion-row>
+        <ion-col>
+            <ion-button type="submit"
+                        color="primary"
+                        shape="round"
+                        (click)="prosesRegister()">
+                Crear usuario
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    
+    </form>
+
+</ion-content>

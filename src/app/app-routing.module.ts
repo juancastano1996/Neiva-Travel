@@ -116,7 +116,8 @@ const routes: Routes = [
   { path: 'customer/:email/:tipo_user', loadChildren: './customer/customer.module#CustomerPageModule' },
   { path: 'addcustomer/:email/:tipo_user', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
   { path: 'addcustomer/:id/:name/:desc', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
-  { path: 'showcustomer/:id/:name/:desc', loadChildren: './showcustomer/showcustomer.module#ShowcustomerPageModule' }
+  { path: 'showcustomer/:id/:name/:desc', loadChildren: './showcustomer/showcustomer.module#ShowcustomerPageModule' },
+  { path: 'add-admin', loadChildren: './add-admin/add-admin.module#AddAdminPageModule' }
 ];
 
 @NgModule({

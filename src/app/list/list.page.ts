@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { MatSliderModule } from '@angular/material/slider';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+
 
 @Component({
   selector: 'app-list',
@@ -16,7 +18,11 @@ export class ListPage implements OnInit {
   mostrar4= true;
   mostrar5= true;
 
-  constructor() { }
+  constructor(private youtube: YoutubeVideoPlayer) { }
+
+  watch(watch){
+    this.youtube.openVideo(watch);
+  }
 
   cambiarTexto() {
     if(this.mostrar) {
@@ -152,6 +158,7 @@ export class ListPage implements OnInit {
       this.mostrar3 = true;
       this.mostrar5 = false;
     }
+
   }
 
   ngOnInit() {

@@ -36,16 +36,6 @@ export class AppComponent {
       icon: '002-trekking'
     },
     {
-      title: 'Hoteles',
-      url: '/hoteles',
-      icon: '020-hotel'
-    },
-    {
-      title: 'Comidas y bebidas',
-      url: '/comidas',
-      icon: '010-restaurant'
-    },
-    {
       title: 'Galeria',
       url: '/galeria',
       icon: '013-photo'

@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 //import { CallNumber } from '@ionic-native/call-number/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -43,6 +44,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
     SplashScreen,
     Geolocation,
     FileTransfer,
+    YoutubeVideoPlayer,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ProvidersService,

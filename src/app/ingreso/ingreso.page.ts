@@ -47,8 +47,8 @@ export class IngresoPage implements OnInit {
     this.loadUsuarios;
   }
 
-  async processLogin(email,tipo_user){    
-    if(this.loginUser.tipo_user="usuario"){
+  async processLogin(email,tipo_user){  
+    if(this.loginUser.tipo_user=="usuario"){//cambiar condicional para que tome el tipo de usuario
       if(this.loginUser.email!="" && this.loginUser.password!=""){
         email = this.loginUser.email;
         tipo_user = this.loginUser.tipo_user;
@@ -85,7 +85,7 @@ export class IngresoPage implements OnInit {
       });
       toast.present();
     }
-    }else if(this.loginUser.tipo_user = "administrador"){
+    }else if(this.loginUser.tipo_user == "administrador"){
       if(this.loginUser.email!="" && this.loginUser.password!=""){
         email = this.loginUser.email;
         tipo_user = this.loginUser.tipo_user;
