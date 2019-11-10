@@ -127,7 +127,10 @@ const routes: Routes = [
   { path: 'tunjo-de-oro', loadChildren: './tunjo-de-oro/tunjo-de-oro.module#TunjoDeOroPageModule' },
   { path: 'hojarasquin', loadChildren: './hojarasquin/hojarasquin.module#HojarasquinPageModule' },
   { path: 'la-llorona', loadChildren: './la-llorona/la-llorona.module#LaLloronaPageModule' },
-  { path: 'sombreron', loadChildren: './sombreron/sombreron.module#SombreronPageModule' }
+  { path: 'sombreron', loadChildren: './sombreron/sombreron.module#SombreronPageModule' },
+  { path: 'rutacacao', loadChildren: './rutacacao/rutacacao.module#RutacacaoPageModule' },
+  { path: 'rutacafe', loadChildren: './rutacafe/rutacafe.module#RutacafePageModule' },
+  { path: 'rutabiodiversidad', loadChildren: './rutabiodiversidad/rutabiodiversidad.module#RutabiodiversidadPageModule' }
 
 ];
 

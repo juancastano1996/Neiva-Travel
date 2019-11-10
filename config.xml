@@ -22,7 +22,7 @@
     <preference name="SplashScreenDelay" value="100" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="FadeSplashScreen" value="true" />
-    <preference name="ShowSplashScreen" value="false" />
+    <preference name="ShowSplashScreen" value="true" />
     <preference name="YouTubeDataApiKey" value="[AIzaSyA6K3DwY4pw9V4VasGmS4NC_MCzRrjr12U]" />
     <platform name="android">
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
@@ -117,5 +117,5 @@
         <string>Necesita acceso la libreria para guardar las fotos</string>
     </edit-config>
     <engine name="browser" spec="^6.0.0" />
-    <engine name="android" spec="^5.2.2" />
+    <engine name="android" spec="~6.4.0" />
 </widget>

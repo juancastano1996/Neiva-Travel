@@ -29,4 +29,13 @@ export class ActividadesPage {
       this.mostrar1 = true;
     }
   }
+  cambiarTexto2() {
+    if(this.mostrar1) {
+      this.mostrar = true;
+      this.mostrar1 = true;
+    }else{
+      this.mostrar = true;
+      this.mostrar1 = true;
+    }
+  }
 }
