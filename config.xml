@@ -116,4 +116,6 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryAddUsageDescription">
         <string>Necesita acceso la libreria para guardar las fotos</string>
     </edit-config>
+    <engine name="browser" spec="^6.0.0" />
+    <engine name="android" spec="^5.2.2" />
 </widget>
