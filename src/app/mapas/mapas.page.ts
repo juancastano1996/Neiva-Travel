@@ -21,24 +21,8 @@ export class MapasPage implements OnInit {
   items: any;
 
   ionViewWillEnter():void{
-    this.load();
     this.geolocation.watchPosition();
   }
-
-  load():void
-  {
-    this.http.get(`${URL}/monumentos.php`)
-    .subscribe((data : any) =>{
-      console.dir(data);
-      this.items = data;
-    },
-    (error : any)=>
-    {
-      console.dir(error);
-    });
-  }
-
-  
 
   constructor(private geolocation: Geolocation,activatedRoute: ActivatedRoute, private http: HttpClient, private proveedorService: ProveedorService, public navCtrl:NavController){}
   

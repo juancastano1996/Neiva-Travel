@@ -22,7 +22,6 @@ export class AddcustomerPage implements OnInit {
   longitud_monumento: number;
   imagen: string;
   posicion: string;
-  tipo_user:string;
   email: string;
 
   id: number;
@@ -46,7 +45,6 @@ export class AddcustomerPage implements OnInit {
       this.longitud_monumento = data.long;
       this.posicion = data.pos;
       this.imagen = data.img;
-      this.tipo_user = data.tipo_user;
       this.email = data.email;
   		console.log(data);
     });
@@ -60,7 +58,7 @@ export class AddcustomerPage implements OnInit {
       fileTransfer.upload(img,'proses-api.php',options);
     }
 
-    createdProcess(email, tipo_user){
+    createdProcess(email){
       if(this.name_customer != "" && this.desc_customer!==""){  
         return new Promise(resolve => {
           let body = {
@@ -69,14 +67,12 @@ export class AddcustomerPage implements OnInit {
             desc_customer : this.desc_customer,
             latitud_monumento : this.latitud_monumento,
             longitud_monumento: this.longitud_monumento,           
-            tipo_user: this.tipo_user,
             email: this.email
           };
           this.postPvdr.postData(body,'proses-api.php')
           .subscribe(data => {
             email = this.email;
-            tipo_user = this.tipo_user;
-            this.router.navigate(['/customer/'+ email + '/' + tipo_user]);
+            this.router.navigate(['/customer/'+ email ]);
             console.log('ok');
           });
 
