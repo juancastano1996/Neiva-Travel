@@ -1,14 +1,80 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons>
+      <ion-back-button slot ="start" defaultHref="/cultura"></ion-back-button>
+        <ion-title>
+          San Juanero
+        </ion-title>
     </ion-buttons>
-    <ion-title>
-      San Juanero
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+    <ion-card class="welcome-card">
+        <ion-img src="/assets/Neiva/caminata.gif" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>
+   
+      <div class="ion-text-justify">
+      <ion-card-content>
+        <p>Neiva lo invita a conocer y vivir experiencias unicas que le permiten estar en contacto con la naturaleza y 
+          disfrutar de bellos paisajes</p>
+      </ion-card-content>
+      </div>
+    </ion-card>
+    <ion-list>
+      <ion-list-header>
+        <ion-title>El San Juanero Huilense</ion-title>
+      </ion-list-header>
+      
+      <ion-item (click)="cambiarTexto()">
+        <ion-icon slot="start" src="/assets/icon/svg/binoculars.svg"></ion-icon>
+        <ion-label>Historia</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar" class="light-back" (click)="cambiarTexto2()">
+        <div>
+          <p align="justify">
+            Los bosques de cacao asociados a los rios y quebradas, son una estrategia integral
+            de conservación por sus efectos veneficos al sistema como captura de carbono, reciclaje
+            de nutrientes, corredor biológico y regulación hídrica. Con la implementación del plan 
+            de Ordenamiento y Manejo de la cuenca del rio Las Ceibas, la caficultura se volvio más
+            amigable con el medio ambiente.
+          </p>
+        </div>
+      </ion-item>
+      <ion-item (click)="cambiarTexto1()">
+        <ion-icon slot="start" src="/assets/icon/svg/002-trekking.svg"></ion-icon>
+        <ion-label>Pasos</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()">
+        <div>
+          <h2>Ruta Natural</h2>
+          <p align="justify">
+            Los bosques de cacao asociados a los rios y quebradas, son una estrategia integral
+            de conservación por sus efectos veneficos al sistema como captura de carbono, reciclaje
+            de nutrientes, corredor biológico y regulación hídrica. Con la implementación del plan 
+            de Ordenamiento y Manejo de la cuenca del rio Las Ceibas, la caficultura se volvio más
+            amigable con el medio ambiente.
+          </p>
+          <p align="justify">
+            Este recorrido es una invitación a disfrutar del Bosque de Niebla de la parte alta de
+            la cuenca del rio Las Ceibas, donde podrá conectarse y observar hermosos paisajes.
+          </p>
+        </div>
+      
+      </ion-item>
+      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutacacao" class="light-back">
+        <ion-label>Ruta natural del cacao</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutacafe" class="light-back">
+        <ion-label>Ruta natural del café</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutabiodiversidad" class="light-back">
+        <ion-label>Ruta natural de la biodiversidad o Ecoturistica</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-item (click)="cambiarTexto()">
+      <ion-icon slot="start" src="/assets/icon/svg/binoculars.svg"></ion-icon>
+      <ion-label>Música</ion-label>
+    </ion-item>
 </ion-content>
+  

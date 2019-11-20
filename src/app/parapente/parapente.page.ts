@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 @Component({
   selector: 'app-parapente',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParapentePage implements OnInit {
 
-  constructor() { }
+  constructor(private youtube: YoutubeVideoPlayer) { }
+
+  watch(watch){
+    this.youtube.openVideo(watch);
+  }
 
   ngOnInit() {
   }

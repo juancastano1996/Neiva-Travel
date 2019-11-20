@@ -5,16 +5,38 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'sanjuanero.page.html',
   styleUrls: ['sanjuanero.page.scss']
 })
-export class SanjuaneroPage implements OnInit {
+export class SanjuaneroPage {
   
-  constructor() {
-    
-  }
+  mostrar = true;
+  mostrar1= true;
 
-  ngOnInit() {
+  constructor() {}
+
+  cambiarTexto() {
+    if(this.mostrar) {
+      this.mostrar = false;
+      this.mostrar1 = true;
+    }else{
+      this.mostrar = true;
+      this.mostrar1 = true;
+    }
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+  cambiarTexto1() {
+    if(this.mostrar1) {
+      this.mostrar = true;
+      this.mostrar1 = false;
+    }else{
+      this.mostrar = true;
+      this.mostrar1 = true;
+    }
+  }
+  cambiarTexto2() {
+    if(this.mostrar1) {
+      this.mostrar = true;
+      this.mostrar1 = true;
+    }else{
+      this.mostrar = true;
+      this.mostrar1 = true;
+    }
+  }
 }

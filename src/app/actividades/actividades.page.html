@@ -1,18 +1,18 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      <ion-back-button></ion-back-button>
+    <ion-buttons>
+      <ion-menu-button  slot="start"></ion-menu-button> 
+      <ion-title>
+        Actividades
+      </ion-title>
+      <ion-back-button slot ="end" defaultHref="/mapas"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Actividades
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card class="welcome-card">
-      <ion-img src="/assets/Neiva/galeria2296.jpg"></ion-img>
+        <ion-img src="/assets/Neiva/caminata.gif" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>
       <ion-card-header>
         <ion-card-subtitle></ion-card-subtitle>
         <ion-card-title>Bienvenido a las actividades de Neiva</ion-card-title>
@@ -24,7 +24,7 @@
       </ion-card-content>
       </div>
     </ion-card>
-    <ion-list lines="none">
+    <ion-list>
       <ion-list-header>
         <ion-title>Actividades para realizar en Neiva</ion-title>
       </ion-list-header>
@@ -33,10 +33,10 @@
         <ion-icon slot="start" src="/assets/icon/svg/binoculars.svg"></ion-icon>
         <ion-label>Aventura</ion-label>
       </ion-item>
-      <ion-item *ngIf="!mostrar" routerLink="/parapente">
+      <ion-item *ngIf="!mostrar" routerLink="/parapente" class="light-back">
         <ion-label>Parapente</ion-label>
       </ion-item>
-      <ion-item *ngIf="!mostrar" routerLink="/rutaachira">
+      <ion-item *ngIf="!mostrar" routerLink="/rutaachira" class="light-back">
         <ion-label>Ruta de la achira</ion-label>
       </ion-item>
       <ion-item (click)="cambiarTexto1()">
@@ -60,14 +60,14 @@
         </div>
       
       </ion-item>
-      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutacacao">
+      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutacacao" class="light-back">
         <ion-label>Ruta natural del cacao</ion-label>
       </ion-item>
-      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutacafe">
+      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutacafe" class="light-back">
         <ion-label>Ruta natural del café</ion-label>
       </ion-item>
-      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutabiodiversidad">
-        <ion-label>Ruta natural de la biodiversidad o Ruta Ecoturistica</ion-label>
+      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" routerLink="/rutabiodiversidad" class="light-back">
+        <ion-label>Ruta natural de la biodiversidad o Ecoturistica</ion-label>
       </ion-item>
     </ion-list>
 </ion-content>

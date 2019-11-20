@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { MatSliderModule } from '@angular/material/slider';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
-
 
 @Component({
   selector: 'app-list',
@@ -48,12 +45,14 @@ export class ListPage implements OnInit {
       this.mostrar2 = true;
       this.mostrar3 = true;
       this.mostrar4 = true;
+      this.mostrar5 = true;
     }else {
       this.mostrar = true;
       this.mostrar1 = true;
       this.mostrar2 = true;
       this.mostrar3 = true;
       this.mostrar4 = true;
+      this.mostrar5 = true;
 
     }
   }
@@ -98,7 +97,7 @@ export class ListPage implements OnInit {
       this.mostrar1 = false;
       this.mostrar2 = true;
       this.mostrar3 = true;
-      this.mostrar4 = false;
+      this.mostrar4 = true;
     }else {
       this.mostrar = true;
       this.mostrar1 = false;

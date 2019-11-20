@@ -1,20 +1,18 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      <ion-back-button></ion-back-button>
+    <ion-buttons>
+      <ion-menu-button  slot="start"></ion-menu-button> 
+      <ion-title>
+        Parapente
+      </ion-title>
+      <ion-back-button slot ="end" defaultHref="/actividades"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Parapente
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card class="welcome-card">
-    <ion-img src="/assets/Neiva/parapente.jpg"></ion-img>
-    <div class="ion-text-justify">
-    </div>
+    <ion-img src="/assets/Neiva/parapente1.gif" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>
   </ion-card>
   <ion-item>
     <div>
@@ -31,6 +29,13 @@
       <p align="justify">
         La temperatura del Cerro en su parte superior es de aproximadamente 17°C.
       </p>
+      <ion-button shape="round"
+        type="submit"
+        expand="full"
+        size="small"
+        fill="outline"
+        color="primary" (click)="watch('1K85RHQlUt0')">Ver video
+      </ion-button>
     </div>
   </ion-item>
 </ion-content>

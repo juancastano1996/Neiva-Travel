@@ -33,7 +33,7 @@ export class CustomerPage implements OnInit {
     this.usuarios=[];
     this.loadUsuarios;
     this.start = 0;
-    this.loadCustomer();
+    this.loadCustomer(this.email);
     this.storage.get('session_storage').then((res)=>{
       this.anggota=res;
       this.username= this.anggota.username;
@@ -92,18 +92,19 @@ export class CustomerPage implements OnInit {
   loadData(event:any){
   	this.start += this.limit;
   	setTimeout(() =>{
-  	this.loadCustomer().then(()=>{
+  	this.loadCustomer(this.email).then(()=>{
   		event.target.complete();
   	});
   	}, 500);
   }
 
-  loadCustomer(){
+  loadCustomer(email){
     return new Promise(resolve => {
       let body = {
-        aksi: 'getdata',
+        aksi: 'getdata2',
         limit: this.limit,
-        start: this.start
+        start: this.start,
+        email: this.email
       };
       this.postPvdr.postData(body,'proses-api.php')
       .subscribe(data => {
