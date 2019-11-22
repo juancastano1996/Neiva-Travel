@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { ProveedorService } from '../proveedor/proveedor.service';
 import { NavController } from '@ionic/angular';
 import { environment } from '../../environments/environment';
+import { PostProvider } from 'src/providers/post-provider';
+import { Platform } from '@ionic/angular';
 
 const URL = environment.url;
 
@@ -19,17 +21,47 @@ declare var MapboxGeocoder: any;
 export class MapasPage implements OnInit {
   activatedRoute: any;
   items: any;
+  subscribe: any;
+  customers : any = [];
 
   ionViewWillEnter():void{
     this.geolocation.watchPosition();
+    this.loadCustomer();
   }
 
-  constructor(private geolocation: Geolocation,activatedRoute: ActivatedRoute, private http: HttpClient, private proveedorService: ProveedorService, public navCtrl:NavController){}
+  constructor(private geolocation: Geolocation,private postPvdr: PostProvider,public platform: Platform, activatedRoute: ActivatedRoute, private http: HttpClient, private proveedorService: ProveedorService, public navCtrl:NavController)
+  {
+    this.subscribe = this.platform.backButton.subscribeWithPriority(666666,()=>{
+      if(this.constructor.name == "MapasPage"){
+        if(window.confirm("Desea salir de la aplicación"))
+        {
+          navigator["app"].exitApp();
+        }
+      }
+    })
+  }
   
   lat = 0.0;
   lng = 0.0;
 
   informacion = null;
+
+  loadCustomer(){
+    return new Promise(resolve => {
+      let body = {
+        aksi: 'getdata3'
+      };
+      this.postPvdr.postData(body,'proses-api.php')
+      .subscribe(data => {
+        for(let customer of data.result){
+          this.customers.push(customer);
+        }
+        resolve(true);
+      });
+      console.log(this.customers);
+    });
+   
+  }
 
  
   ngOnInit() {
