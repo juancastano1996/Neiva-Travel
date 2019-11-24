@@ -23,6 +23,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera/ngx';
 import { PostProvider } from '../providers/post-provider';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx'
 
 
 @NgModule({
@@ -45,7 +47,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
     Geolocation,
     FileTransfer,
     YoutubeVideoPlayer,
-    Camera,
+    Camera,File,WebView,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ProvidersService,
     ProveedorService,

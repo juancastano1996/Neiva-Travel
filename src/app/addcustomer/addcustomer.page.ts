@@ -67,7 +67,8 @@ export class AddcustomerPage implements OnInit {
             desc_customer : this.desc_customer,
             latitud_monumento : this.latitud_monumento,
             longitud_monumento: this.longitud_monumento,           
-            email: this.email
+            email: this.email,
+            imagen: this.imagen
           };
           this.postPvdr.postData(body,'proses-api.php')
           .subscribe(data => {
