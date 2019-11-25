@@ -99,6 +99,7 @@ export class AddcustomerPage implements OnInit {
       };
       this.postPvdr.postData(body,'proses-api.php')
       .subscribe(data => {
+        email = this.email;
         this.router.navigate(['/customer/'+ email]);
         console.log('ok');
       });

@@ -61,8 +61,8 @@ export class CustomerPage implements OnInit {
     this.router.navigate(['/addcustomer/' + email ]);
   }
 
-  updateCustomer(id,name,desc){
-  	this.router.navigate(['/addcustomer/' + id + '/' + name + '/' + desc]);
+  updateCustomer(id,name,desc,email){
+  	this.router.navigate(['/addcustomer/' + id + '/' + name + '/' + desc + '/' + email]);
   }
 
   delCustomer(id){
