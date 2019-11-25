@@ -47,15 +47,12 @@ export class IngresoPage implements OnInit {
     this.loadUsuarios;
   }
 
-  async processLogin(email,tipo_user){  
-    if(this.loginUser.tipo_user=="usuario"){//cambiar condicional para que tome el tipo de usuario
+  async processLogin(email){
       if(this.loginUser.email!="" && this.loginUser.password!=""){
         email = this.loginUser.email;
-        tipo_user = this.loginUser.tipo_user;
       let body={
         email: this.loginUser.email,
         password: this.loginUser.password,
-        tipo_user: this.loginUser.tipo_user,
         aksi:'login'
       };
       this.loadUsuarios();
@@ -64,7 +61,7 @@ export class IngresoPage implements OnInit {
         var alertmsg = data.msg;
         if(data.success){
           this.storage.set('session_storage',data.result);
-          this.router.navigate(['/customer/'+ email + '/' + tipo_user]);
+          this.router.navigate(['/customer/'+ email ]);
           const toast = await this.toastCtrl.create({
             message: 'Ingreso exitoso',
             duration: 2000
@@ -85,47 +82,6 @@ export class IngresoPage implements OnInit {
       });
       toast.present();
     }
-    }else if(this.loginUser.tipo_user == "administrador"){
-      if(this.loginUser.email!="" && this.loginUser.password!=""){
-        email = this.loginUser.email;
-        tipo_user = this.loginUser.tipo_user;
-      let body={
-        email: this.loginUser.email,
-        password: this.loginUser.password,
-        tipo_user: this.loginUser.tipo_user,
-        aksi:'login'
-      };
-      this.postPvdr.postData(body,'proses-api.php')
-      .subscribe(async data => {
-        var alertmsg = data.msg;
-        if(data.success){
-          this.storage.set('session_storage',data.result);
-          this.router.navigate(['/customer/'+ email + '/' + tipo_user]);
-          const toast = await this.toastCtrl.create({
-            message: 'Ingreso exitoso',
-            duration: 2000
-          });
-          toast.present();
-        }else{
-          const toast = await this.toastCtrl.create({
-            message: alertmsg,
-            duration: 2000
-          });
-          toast.present();
-        }
-      });
-    }else{
-      const toast = await this.toastCtrl.create({
-        message: 'Usuario y/o contraseña incorrectos',
-        duration: 2000
-      });
-      toast.present();
-    }
-
-    }else{
-      console.log('no tiene usuario');
-    }
-    
   }
   loadUsuarios(){
     return new Promise(resolve => {

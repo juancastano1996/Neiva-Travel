@@ -36,16 +36,6 @@ export class AppComponent {
       icon: '002-trekking'
     },
     {
-      title: 'Galeria',
-      url: '/galeria',
-      icon: '013-photo'
-    },
-    {
-      title: 'Neiva nocturna',
-      url: '/nocturna',
-      icon: '028-cocktail'
-    },
-    {
       title: 'Emergencias',
       url: '/emergencias',
       icon: 'hospital'
@@ -82,7 +72,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      timer(10000).subscribe(()=>this.showSplash = false)
+      timer(1000).subscribe(()=>this.showSplash = false)
       this.authService.getToken();
     });
    

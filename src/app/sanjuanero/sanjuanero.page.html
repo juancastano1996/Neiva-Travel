@@ -1,27 +1,245 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons>
+      <ion-back-button slot ="start" defaultHref="/cultura"></ion-back-button>
+        <ion-title>
+          Sanjuanero
+        </ion-title>
     </ion-buttons>
-    <ion-title>
-      San Juanero
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
+    <ion-card class="welcome-card">
+        <ion-img src="/assets/Neiva/sanjuanero.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>
+   
+      <div class="ion-text-justify">
+      <ion-card-content>
+        <p>El tradicional baile del Sanjuanero Huilense declarado Patrimonio Cultural del Huila 
+        es considerado el baile más representativo del Huila. </p>
+      </ion-card-content>
       </div>
+    </ion-card>
+    <ion-list>
+      <ion-list-header>
+        <ion-title>El Sanjuanero Huilense</ion-title>
+      </ion-list-header>
+      
+      <ion-item (click)="cambiarTexto()">
+        <ion-icon slot="start" src="/assets/icon/svg/bookmark-1.svg"></ion-icon>
+        <ion-label>Historia</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar" class="light-back" (click)="cambiarTexto2()">
+        <div>
+          <h2>La melodía</h2>
+          <p align="justify">
+              El sanjuanero fue compuesto a principios de 1936 por el Mestro Anselmo Durán Plazas, 
+              el 12 de junio de 1936, víspera de la fiesta patronal de Gigante - Huila, la Banda 
+              Departamental presentó por primera vez en la patria de Francisco Eustaquio y José Maria 
+              Álvarez esta obra entre el aplauso y la complacencia de todos.
+          </p>
+          <p align="justify">
+              Dos años después en agosto de 1938 la magistral pieza tuvo su estreno oficial en el Salón
+              Amarillo del Capitolio Nacional. La primera grabación discográfica fue realizada por el 
+              dueto Garzón y Collazos en la década de los años 50.
+          </p>
+          <h2>El baile</h2>
+          <p align="justify">
+            Sobre el origen del Baile el San Juanero Huilense no hay acuerdo definitivo entre 
+            estudiosos. Todo comienza con la organización del Festival Folclórico y Reinado Nacional
+            del Bambuco, pues en los certámenes anteriores a la oficialización se presentaban grupos
+            de danza en los desfiles y bailes que interpretaban, según Álvaro Trujillo en su libro 
+            “Génesis y Evolución del Baile San Juanero“, “El bambuco caminadito, estilo junta tierra, 
+            lleno de gracia y sencillez, sin nada de brinquitos en los parejos”
+          </p>
+          <p align="justify">
+            Sin embargo, con la realización formal de las fiestas y con ella la decisión de realizar 
+            el Reinado Nacional del Bambuco, fue necesario crear una coreografía para el tema 
+            Sanjuanero Huilense, adoptado como la pieza musical que todas las candidatas deberín 
+            bailar para seleccionar a la reina. El proceso de creación de la coreografía oficial 
+            partió de la base de considerar el Sanjuanero Huilense como un bambuco que tiene 
+            elementos de rajaleña (pertenece al género de las trovas en cuanto a la copla y a las 
+            danzas en razón de las tonadas). El Sanjuanero adoptó del rajaleña los pasos del 
+            caminadito, el junta tierra y el escobillado, que es la parte más saltadita del baile.
+          </p>
+          <p align="justify">
+            Luego se adoptaron algunos elementos del bambuco tradicional, a los cuales se le 
+            adicionaron figuras y movimientos que se observaban en los barrios y corregimientos de 
+            Neiva durante la realización de las rondas que se llevan a cabo como antesala a las 
+            fiestas. Como todo proceso folclórico, la coreografía oficial del Sanjuanero Huilense 
+            no se impuso inmediatamente. Fue necesario que la estructura se asimilara por parte de 
+            bailarines y parejos, hasta que se consolidó en acuerdo firmado por la Junta Directiva 
+            del Instituto Huilense de Cultura y Turismo, el 28 de mayo de 1982. 
+          </p>
+        </div>
+      </ion-item>
+      <ion-item (click)="cambiarTexto1()">
+        <ion-icon slot="start" src="/assets/icon/svg/bailar.svg"></ion-icon>
+        <ion-label>Pasos</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()">
+        <div>
+          <h2>1. La invitación</h2>
+          <ion-img src="/assets/Neiva/sanjuanero/sanjuanero2.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>
+   
+          <p align="justify">
+            Originalmente el varón tomaba su pareja de la mano y con paso seguro la conduce dando 
+            la vuelta al tablado para iniciar el baile, soltándola al dar la dama un giro; 
+            actualmente se ejecutan tres propuestas, la primera de ellas:
+          </p>
+          <p align="justify">
+            Tomada de la cintura y salida; Tomada de la mano y salida; Invitación con vuelta 
+            alrededor de la pareja y salida en paso caminado.
+          </p>
+          <h2>2. Los ochos</h2>
+          <ion-img src="/assets/Neiva/sanjuanero/sanjuanero3.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>
+          <p align="justify">
+            Adoptan dos formas fundamentales, la primera consiste en que con paso caminado sin darse
+            la espalda trazan con sus pasos dos círculos que se encuentran en el centro formando la 
+            figura del número ocho, la segunda propuesta en que partiendo del centro los bailarines 
+            describen cada uno, ochos completos que se superponen (adornan con giros).
+          </p>
+          <h2>3. Los coqueteos</h2>
+          <ion-img src="/assets/Neiva/sanjuanero/sanjuanero4.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>          
+          <p align="justify">
+            Consiste en la representación de una velada propuesta que es rechazada por la bailarina 
+            a través de una mímica de miradas de picardía, levantamientos de las faldas hasta la 
+            altura de la pantorrilla acompañados de uso del sombrero que quita de la cabeza del 
+            parejo para ocultar sus rostros de un supuesto beso, luego levantándolo, mostrándolo a 
+            los circunstantes y ejecutar un pausado giro, durante el cual lo pasa bajo la barbilla 
+            de su compañero colocándolo nuevamente y mientras toman por un extremo el pañuelo rabo 
+            de gallo que el bailarín lleva al cuello y ahora sujeta por la punta opuesta, quedan los 
+            dos después de un medio giro, frente a frente terminando con uno o dos cruces bajo el 
+            pañuelo.
+          </p>
+          <h2>4. La arrodillada</h2>
+          <ion-img src="/assets/Neiva/sanjuanero/sanjuanero5.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>          
+          <p align="justify">
+            El parejo coloca una rodilla en tierra y ella con suavidad (sin soltar ninguno de los 
+            dos el pañuelo), ondean la falda y en puntas de pie con paso arrastrado da una vuelta 
+            entorno durante ocho compases al último de los cuales culmina con un giro y acercamiento 
+            de caras en simulacro de un beso, el bailarín se levanta y los dos se cruzan tomados de 
+            sus puntas del pañuelo rabo de gallo y avanzan bambuqueando, ( paso que se caracteriza 
+            por ser un poco saltado y punta de pie) mientras ella se envuelve alrededor de la cintura 
+            en dos o tres giros.
+          </p>
+          <h2>5. Levantada de pie</h2>
+          <ion-img src="/assets/Neiva/sanjuanero/sanjuanero6.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>          
+          <p align="justify">
+            En paso de trencillo consiste en tres pasos bambuqueados seguidos de otro del cual los dos 
+            al tiempo y ella con quiebre de cintura y cierre completo en medio de la falda, salta 
+            levantando el pie derecho con la punta del pie curvada hacia abajo; en la levantada doble 
+            se repite en la figura anterior con levantadas alternativas tanto del pie derecho como del 
+            izquierdo hasta la cuenta de ocho compases; en el último, durante un giro rápido ella le 
+            quita el sombrero y huye hasta el extremo del escenario quedando los dos frente a frente. 
+            (El conteo para levantar el pie se inicia hacia el lado derecho). Paso saltado. Paso Básico.
+          </p>
+          <h2>6. La arrastrada del ala</h2>
+          <ion-img src="/assets/Neiva/sanjuanero/sanjuanero7.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>          
+          <p align="justify">
+            Ubicados en el extremo del escenario ella cubriéndose el rostro con el sombrero se 
+            contonea graciosamente, luego lo arroja al suelo de tal modo que quede boca abajo, 
+            retrocede, en pasos largos y alternativos iniciados con el pie derecho para regresar y 
+            colocando la punta del pie sobre el ala, en la primera ocasión, lo pica para en la segunda, 
+            atraerlo hacia sí tres veces mientras el parejo con pasos similares retorna y hace el 
+            ademán de querer recogerlo, la mujer procede para iniciar con el parejo un ocho en cuyo 
+            centro levanta del piso el sombrero. Paso saltado
+          </p>
+          <h2>7. EL secreto</h2>
+          <ion-img src="/assets/Neiva/sanjuanero/sanjuanero8.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>          
+          <p align="justify">
+            El paso caminando en rutina del bambuco se cubren el rostro con el sombrero que ella 
+            sostiene por la copa con una postura especial de la mano derecha, él le murmura al oído, 
+            asombrada ella, de la audacia de la propuesta, le rechaza separándose en un ágil y largo 
+            paso, muestra la pantorrilla seguida de un signo negativo con el índice de la mano derecha
+            mientras con la mano izquierda se golpea el codo, los ojos muy abiertos y asombrados, el 
+            juego continua con adornos de pareja.
+          </p>
+          <h2>8. Salida final</h2>
+          <p align="justify">
+            Comienza con paso largo bambuqueando; los intérpretes se desplazan unidos por la cintura 
+            y con la mano libre toman los extremos del pañuelo rabo de gallo, moviéndolo hacia 
+            delante sobra sus cabezas en una vuelta completa al escenario, que bien calculada, 
+            terminan precisamente los dos sonrientes ante el público.  
+          </p>
+          <ion-button shape="round"
+            type="submit"
+            expand="full"
+            size="small"
+            fill="outline"
+            color="primary" (click)="watch('8DOOPFVZsEw')">Video del baile completo
+          </ion-button>
+        </div>
+      </ion-item>  
+    </ion-list>
+
+    <ion-item (click)="cambiarTexto3()">
+      <ion-icon slot="start" src="/assets/icon/svg/music-player-1.svg"></ion-icon>
+      <ion-label>Música</ion-label>
     </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+    <ion-item *ngIf="!mostrar2" class="light-back" (click)="cambiarTexto2()">
+        <div>
+          <p align="justify">
+            Compuesto a principios de 1936 por el Mestro Anselmo Durán Plazas, el 12 de junio 
+            de 1936, cuenta con 2 versiones, una que es solo la melodia y es utilizada para la
+            coreografia del Sanjuanero Huilense y la otra cuenta con letra
+          </p>
+        
+          <ion-button shape="round"
+            type="submit"
+            expand="full"
+            size="small"
+            fill="outline"
+            color="primary" (click)="watch('8DOOPFVZsEw')">Video de la Melodia
+          </ion-button>
+          <ion-button shape="round"
+            type="submit"
+            expand="full"
+            size="small"
+            fill="outline"
+            color="primary" (click)="watch1('mdP-CBWqXFQ')">Video de la Letra
+          </ion-button>
+        </div>
+      </ion-item>
+      <ion-item (click)="cambiarTexto4()">
+        <ion-icon slot="start" src="/assets/icon/svg/bailar-1.svg"></ion-icon>
+        <ion-label>Traje</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!mostrar3" class="light-back" (click)="cambiarTexto2()">
+          <div>
+            <h2>Caracteristicas del traje</h2>
+            <ion-img src="/assets/Neiva/sanjuanero/traje.jpg" style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;"></ion-img>          
+            <p align="justify">
+              El traje del sanjuanero huilense está compuesto para la mujer de una blusa blanca en 
+              dacrón a la cintura y ceñida al cuerpo con cremallera en la parte posterior. Cuello 
+              bandeja, adornada con encaje en poliéster blanco y una arandela en encaje de tul, millaré 
+              de siete centímetros de ancho alrededor del cuello. Manga tres cuartos con encaje en 
+              poliéster blanco al terminar y randa millaré con lentejuela de ocho centímetros al 
+              contorno del brazo.
+            </p>
+            <p align="justify">
+              La falda es en satín raso rotonda en plato y de color, largo a mitad de pierna, 
+              incluyendo encaje de mínimo doce y máximo dieciséis centímetros. Millaré de máximo 
+              ocho centímetros. Las primeras flores que adornaban eran pintadas sobre la tela; en 
+              la actualidad la falda lleva flores en diferentes tamaños, troqueladas en satín, teñidas 
+              en degrade y el follaje (hojas y capullos) pintados a mano. Tienen hasta nueve ramos de 
+              flores troqueladas, distribuidos de la siguiente manera:
+            </p>
+            <p align="justify">
+              Cuatro ramos adelante y cinco ramos en la parte trasera. Las Flores de los ramos tienen 
+              tres tamaños: grandes 10 a 12 flores, medianos 4 a 5 flores y pequeños 9 a 12 flores y 
+              se combinan los tamaños entre sí. En el ruedo van dos arandelas de encaje de poliéster y 
+              dos de tul. Tocado: Es un arreglo de cuatro ramos acorde a las flores de la falda
+            </p>
+              
+            <p align="justify">
+              El traje típico masculino está conformado por sombrero de pieza (suaceño) o de pindo, 
+              camisa blanca o de colores con pechera bordada, en colores o hecha en tela rayada en 
+              otro color, pañuelo rabo'e gallo rojo en satín, poncho o ruana calentana, cinturón de 
+              tres hebillas, pantalón a rayas de paño o dril samacá y bota. El parejo calza alpargatas 
+              de fique.
+            </p>
+          </div>
+        </ion-item>
 </ion-content>
+  

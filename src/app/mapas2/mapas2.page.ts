@@ -68,7 +68,7 @@ export class Mapas2Page implements OnInit {
     
     container: 'map2',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [ -75.265393,2.991553 ],
+    center: [ -75.296511,2.929219 ],
     zoom: 12
     });
 

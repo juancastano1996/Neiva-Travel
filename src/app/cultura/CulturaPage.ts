@@ -47,7 +47,7 @@ export class CulturaPage implements OnInit {
     if(this.mostrar1){
       this.mostrar1 = false;
     }else{
-      this.mostrar1 = true;
+      this.mostrar1 = false;
 
     }
   }

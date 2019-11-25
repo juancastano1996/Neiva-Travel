@@ -1,15 +1,16 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons>
+      <ion-menu-button  slot="start"></ion-menu-button> 
+      <ion-title>
+        Mi municipio
+      </ion-title>
+      <ion-back-button slot ="end" defaultHref="/mapas"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Mi municipio
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content class="background-image" no-scroll padding>
   <ion-item (click)="cambiarTexto()">
       <ion-icon slot="start" src="/assets/icon/svg/file.svg"></ion-icon>
       <div class="item-note">
@@ -17,7 +18,7 @@
       </div>
   </ion-item>
 
-  <ion-item *ngIf="!mostrar" (click)="cambiarTexto7()">
+  <ion-item *ngIf="!mostrar" (click)="cambiarTexto7()" class="light-back">
       <div class="item-note">
         <ion-title>Geografia</ion-title>
       </div>
@@ -25,7 +26,6 @@
 
   <ion-item *ngIf="!mostrar5" (click)="cambiarTexto6()">
     <div class="item-note">
-      <ion-img src="/assets/Neiva/bandera.png" style="height: 50%; width: 50%;" class="center" ></ion-img>
       <p align="justify">
         Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
         margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
@@ -57,7 +57,7 @@
       </div>
   </ion-item>
 
-  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto5()">
+  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto5()" class="light-back">
       <ion-icon slot="start" src="/assets/icon/svg/escudo-grande.svg"></ion-icon>
       <div class="item-note">
         <ion-title>Escudo</ion-title>
@@ -93,7 +93,7 @@
       </div>
   </ion-item>
 
-  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()">
+  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto2()" class="light-back">
       <ion-icon slot="start" src="/assets/icon/svg/flag-1.svg"></ion-icon>
       <div class="item-note">
         <ion-title>Bandera</ion-title>
@@ -119,12 +119,12 @@
           Cruzando la bandera de adentro hacia afuera y hacia arriba llevará​ una flecha indígena en negro que 
           representa el espíritu de superación de nuestra raza.
         </p>
-        <p align="justify">
+        <p align="justify"><i><b>
           Decreto 210 del 06 de diciembre de 1967 por medio del cual se adopta la bandera de Neiva​
-        </p>
+        </b></i></p>
       </div>
   </ion-item>
-  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto4()">
+  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto4()" class="light-back">
       <ion-icon slot="start" src="/assets/icon/svg/record.svg"></ion-icon>  
       <div class="item-note">
       <ion-title>Himno</ion-title>
@@ -138,11 +138,13 @@
         celebración del IV centenario de la primera fundación de la ciudad, el 8 de diciembre de 1939, por el 
         gobierno municipal, pero no fue sino hasta 1997 que se decretó como himno oficial de la ciudad.
       </p>
-      <button shape="round"
-      expand="full"
-      size="small"
-      fill="outline"
-      color="primary" (click)="watch('ZaAXdrV0jU0')">Ver video</button>
+      <ion-button shape="round"
+        type="submit"
+        expand="full"
+        size="small"
+        fill="outline"
+        color="primary" (click)="watch('ZaAXdrV0jU0')">Ver video
+      </ion-button>
     </div>  
   </ion-item>
   

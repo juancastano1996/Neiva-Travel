@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostProvider{
-    server:string = "http://localhost/tutorial/server_api/";
+    server:string = "http://localhost/tutorial/server_api/";//cambiar a http://localhost/tutorial para provarlo de manera local
 
     constructor(public http:Http) { }
 

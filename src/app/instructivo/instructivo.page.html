@@ -1,46 +1,206 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons>
+      <ion-menu-button  slot="start"></ion-menu-button> 
+      <ion-title>
+        Instructivo
+      </ion-title>
+      <ion-back-button slot ="end" defaultHref="/mapas"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Instructivo
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Iniciemos</ion-card-subtitle>
-        <ion-card-title>Bienvenido a Neiva Travel</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Para utilizar la aplicación Neiva Travel debera tener en cuenta las caracteristicas importantes de ella.
-          Como son donde encontrar las rutas turisticas importantes de la ciudad de Neiva
+  <ion-item (click)="cambiarTexto()">
+    <div class="item-note">
+      <ion-title>Mapa inicial</ion-title>
+    </div>
+  </ion-item>
+
+  <ion-item *ngIf="!mostrar" (click)="cambiarTexto1()">
+    <div class="item-note">
+      <p align="justify">
+        Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+        margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+        Ríos Las Ceibas y el Río del Oro. 
+      </p>
+    </div>
+  </ion-item>
+
+  <ion-item (click)="cambiarTexto2()">
+    <div class="item-note">
+      <ion-title>Menu lateral</ion-title>
+    </div>
+  </ion-item>
+
+  <ion-item *ngIf="!mostrar1" (click)="cambiarTexto1()">
+    <div class="item-note">
+      <p align="justify">
+        Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+        margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+        Ríos Las Ceibas y el Río del Oro. 
+      </p>
+    </div>
+  </ion-item>
+
+  <ion-item (click)="cambiarTexto3()">
+    <div class="item-note">
+      <ion-title>Mi municipio</ion-title>
+    </div>
+  </ion-item>
+
+  <ion-item *ngIf="!mostrar2" (click)="cambiarTexto1()">
+    <div class="item-note">
+      <p align="justify">
+        Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+        margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+        Ríos Las Ceibas y el Río del Oro. 
+      </p>
+    </div>
+  </ion-item>
+
+  <ion-item (click)="cambiarTexto4()">
+    <div class="item-note">
+      <ion-title>Nuestra cultura</ion-title>
+    </div>
+  </ion-item>
+
+    <ion-item *ngIf="!mostrar3" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
         </p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+      </div>
+    </ion-item>
+
+    <ion-item (click)="cambiarTexto5()">
+      <div class="item-note">
+        <ion-title>Actividades</ion-title>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="!mostrar4" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
+        </p>
+      </div>
+    </ion-item>
+
+    <ion-item (click)="cambiarTexto6()">
+      <div class="item-note">
+        <ion-title>Emergencias</ion-title>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="!mostrar5" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
+        </p>
+      </div>
+    </ion-item>
+
+    <ion-item (click)="cambiarTexto7()">
+      <div class="item-note">
+        <ion-title>Crear cuenta (Para sitios)</ion-title>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="!mostrar6" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
+        </p>
+      </div>
+    </ion-item>
+  
+    <ion-item (click)="cambiarTexto8()">
+      <div class="item-note">
+        <ion-title>Ingresar a la cuenta</ion-title>
+      </div>
+    </ion-item>
+    
+    <ion-item *ngIf="!mostrar7" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
+        </p>
+      </div>
+    </ion-item>
+
+    <ion-item (click)="cambiarTexto9()">
+      <div class="item-note">
+        <ion-title>Crear mis sitios</ion-title>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="!mostrar8" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
+        </p>
+      </div>
+    </ion-item>
+
+    <ion-item (click)="cambiarTexto10()">
+      <div class="item-note">
+        <ion-title>Ver o actualizar mis sitios</ion-title>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="!mostrar9" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
+        </p>
+      </div>
+    </ion-item>
+
+    <ion-item (click)="cambiarTexto11()">
+      <div class="item-note">
+        <ion-title>Eliminar mis sitios</ion-title>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="!mostrar10" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
+        </p>
+      </div>
+    </ion-item>
+
+    <ion-item (click)="cambiarTexto12()">
+      <div class="item-note">
+        <ion-title>Cerrar sesión</ion-title>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="!mostrar11" (click)="cambiarTexto1()">
+      <div class="item-note">
+        <p align="justify">
+          Neiva está ubicada entre la cordillera Central y Oriental, en una planicie sobre la 
+          margen oriental del río Magdalena, en el valle del mismo nombre, cruzada por los 
+          Ríos Las Ceibas y el Río del Oro. 
+        </p>
+      </div>
+    </ion-item>
+  
 </ion-content>

@@ -1,11 +1,12 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons>
+      <ion-menu-button  slot="start"></ion-menu-button> 
+      <ion-title>
+        Nuestra cultura
+      </ion-title>
+      <ion-back-button slot ="end" defaultHref="/mapas"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Nuestra cultura
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -51,7 +52,7 @@
         <h4><b>Mujeres</b></h4>
         <p>
           La mujer chiquita y tetona, la que no es puta es ladrona
-        </p>
+        </p> 
         <p>
           En peleas de comadres se descubren las verdades
         </p>
@@ -88,14 +89,42 @@
   </ion-item>
 
   <ion-list>
-    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()">
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/mohan">
       <ion-img  src="/assets/mitos-y-leyendas/mohan.jpg" style="height: 40%; width: 40%; " ></ion-img>
       <ion-label>El mohan</ion-label>
     </ion-item>
-    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()">
-        <ion-img src="/assets/mitos-y-leyendas/mula-del-diablo.jpg" style="height: 40%; width: 40%;"  ></ion-img>
-        <ion-label>La Mula del diablo</ion-label>
-      </ion-item>
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/mula-del-diablo">
+      <ion-img src="/assets/mitos-y-leyendas/mula-del-diablo.jpg" style="height: 40%; width: 40%;"  ></ion-img>
+      <ion-label>La Mula del Diablo</ion-label>
+    </ion-item>
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/madre-monte">
+      <ion-img src="/assets/mitos-y-leyendas/madre-monte.jpg" style="height: 40%; width: 40%;"  ></ion-img>
+      <ion-label>La Madre Monte</ion-label>
+    </ion-item>
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/pata-sola">
+      <ion-img src="/assets/mitos-y-leyendas/la-patasola.jpg" style="height: 40%; width: 40%;"  ></ion-img>
+      <ion-label>La Pata Sola</ion-label>
+    </ion-item>
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/candileja">
+      <ion-img src="/assets/mitos-y-leyendas/la-candileja.jpg" style="height: 40%; width: 40%;"  ></ion-img>
+      <ion-label>La Candileja</ion-label>
+    </ion-item>
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/tunjo-de-oro">
+      <ion-img src="/assets/mitos-y-leyendas/el-tunjo.jpg" style="height: 40%; width: 40%;"  ></ion-img>
+      <ion-label>El Tunjo de Oro</ion-label>
+    </ion-item>
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/hojarasquin">
+      <ion-img src="/assets/mitos-y-leyendas/hojasraquin.jpg" style="height: 40%; width: 40%;"  ></ion-img>
+      <ion-label>El Hojarasquín</ion-label>
+    </ion-item>
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/la-llorona">
+      <ion-img src="/assets/mitos-y-leyendas/la-llorona.jpg" style="height: 40%; width: 40%;"  ></ion-img>
+      <ion-label>La Llorona</ion-label>
+    </ion-item>
+    <ion-item *ngIf="!mostrar1" (click)="cambiarTexto3()" routerLink="/sombreron">
+      <ion-img src="/assets/mitos-y-leyendas/sobreron.jpg" style="height: 40%; width: 40%;"  ></ion-img>
+      <ion-label>El Sombreron</ion-label>
+    </ion-item>
   </ion-list>
     
   <ion-item routerLink="/calendario">
@@ -104,6 +133,6 @@
   </ion-item>
   <ion-item routerLink="/sanjuanero">
     <ion-icon slot="start" src="/assets/icon/svg/colombiano.svg"></ion-icon>
-    <ion-label>San Juanero</ion-label>
+    <ion-label>Sanjuanero</ion-label>
   </ion-item>
 </ion-content>

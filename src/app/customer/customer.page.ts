@@ -17,14 +17,12 @@ export class CustomerPage implements OnInit {
   start : number = 0; 
   username : string;
   email: "";
-  tipo_user: "";
   anggota : any;
 
   constructor(private router:Router,private postPvdr: PostProvider, private actRoute: ActivatedRoute, public toastCtrl: ToastController,private storage:Storage ) { }
 
   ngOnInit() {
-    this.actRoute.params.subscribe((data:any)=>{
-      this.tipo_user = data.tipo;
+    this.actRoute.params.subscribe((data:any)=>{ 
       this.email = data.email;
   		console.log(data);
     });
@@ -35,12 +33,11 @@ export class CustomerPage implements OnInit {
     this.usuarios=[];
     this.loadUsuarios;
     this.start = 0;
-    this.loadCustomer();
+    this.loadCustomer(this.email);
     this.storage.get('session_storage').then((res)=>{
       this.anggota=res;
       this.username= this.anggota.username;
       this.email = this.anggota.email;
-      this.tipo_user = this.anggota.tipo_user;
     })
   }
 
@@ -54,15 +51,14 @@ export class CustomerPage implements OnInit {
     toast.present();
   }
 
-  addCustomer(email, tipo_user){
+  addCustomer(email){
     
     async data => {
     this.storage.set('session_storage',data.result);
 
   }
     email = this.email;
-    tipo_user = this.tipo_user;
-    this.router.navigate(['/addcustomer/' + email + '/' + tipo_user]);
+    this.router.navigate(['/addcustomer/' + email ]);
   }
 
   updateCustomer(id,name,desc){
@@ -96,18 +92,19 @@ export class CustomerPage implements OnInit {
   loadData(event:any){
   	this.start += this.limit;
   	setTimeout(() =>{
-  	this.loadCustomer().then(()=>{
+  	this.loadCustomer(this.email).then(()=>{
   		event.target.complete();
   	});
   	}, 500);
   }
 
-  loadCustomer(){
+  loadCustomer(email){
     return new Promise(resolve => {
       let body = {
-        aksi: 'getdata',
+        aksi: 'getdata2',
         limit: this.limit,
-        start: this.start
+        start: this.start,
+        email: this.email
       };
       this.postPvdr.postData(body,'proses-api.php')
       .subscribe(data => {
