@@ -84,7 +84,7 @@ export class AddcustomerPage implements OnInit {
     this.tempImages = [];
   }
 
-  updateProcess(email, tipo_user){
+  updateProcess(email){
     return new Promise(resolve => {
       let body = {
         aksi : 'update',
@@ -94,11 +94,12 @@ export class AddcustomerPage implements OnInit {
         latitud_monumento : this.latitud_monumento,
         longitud_monumento: this.longitud_monumento,
         posicion:this.posicion,
+        email: this.email,
         imagen: this.imagen
       };
       this.postPvdr.postData(body,'proses-api.php')
       .subscribe(data => {
-        this.router.navigate(['/customer/'+ email + '/' + tipo_user]);
+        this.router.navigate(['/customer/'+ email]);
         console.log('ok');
       });
 

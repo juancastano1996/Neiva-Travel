@@ -115,7 +115,7 @@ const routes: Routes = [
   { path: 'actualizar-usuario', loadChildren: './actualizar-usuario/actualizar-usuario.module#ActualizarUsuarioPageModule' },
   { path: 'customer/:email', loadChildren: './customer/customer.module#CustomerPageModule' },
   { path: 'addcustomer/:email', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
-  { path: 'addcustomer/:id/:name/:desc', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
+  { path: 'addcustomer/:id/:name/:desc/:email', loadChildren: './addcustomer/addcustomer.module#AddcustomerPageModule' },
   { path: 'showcustomer/:id/:name/:desc', loadChildren: './showcustomer/showcustomer.module#ShowcustomerPageModule' },
   { path: 'add-admin', loadChildren: './add-admin/add-admin.module#AddAdminPageModule' },
   { path: 'parapente', loadChildren: './parapente/parapente.module#ParapentePageModule' },

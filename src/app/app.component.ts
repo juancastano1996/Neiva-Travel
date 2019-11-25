@@ -72,7 +72,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      timer(10000).subscribe(()=>this.showSplash = false)
+      timer(1000).subscribe(()=>this.showSplash = false)
       this.authService.getToken();
     });
    
