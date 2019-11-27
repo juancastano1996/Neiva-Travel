@@ -22,15 +22,19 @@ export class MapasPage implements OnInit {
   activatedRoute: any;
   items: any;
   subscribe: any;
-  customers : any = [];
+  customers: any = [];
+  nombre: any = [];
+  descripcion : any = []; 
+  latitud: any = [];
+  longitud: any = [];
 
-  ionViewWillEnter():void{
+
+  ionViewWillEnter(): void {
     this.geolocation.watchPosition();
     this.loadCustomer();
   }
 
-  constructor(private geolocation: Geolocation,private postPvdr: PostProvider,public platform: Platform, activatedRoute: ActivatedRoute, private http: HttpClient, private proveedorService: ProveedorService, public navCtrl:NavController)
-  {
+  constructor(private geolocation: Geolocation, private postPvdr: PostProvider, public platform: Platform, activatedRoute: ActivatedRoute, private http: HttpClient, private proveedorService: ProveedorService, public navCtrl: NavController) {
     /*this.subscribe = this.platform.backButton.subscribeWithPriority(666666,()=>{
       if(this.constructor.name == "MapasPage"){
         if(window.confirm("Desea salir de la aplicación"))
@@ -40,162 +44,135 @@ export class MapasPage implements OnInit {
       }
     })*/
   }
-  
+
   lat = 0.0;
   lng = 0.0;
 
+  latitud_monumento = 0.0;
+  longitud_monumento = 0.0;
+
   informacion = null;
 
-  salir(){
-    if(window.confirm("Desea salir de la aplicación"))
-      {
-        navigator["app"].exitApp();
-      }
+  salir() {
+    if (window.confirm("Desea salir de la aplicación")) {
+      navigator["app"].exitApp();
+    }
   }
 
-  loadCustomer(){
+  loadCustomer() {
     return new Promise(resolve => {
       let body = {
         aksi: 'getdata3'
       };
-      this.postPvdr.postData(body,'proses-api.php')
-      .subscribe(data => {
-        for(let customer of data.result){
-          this.customers.push(customer);
-        }
-        resolve(true);
-      });
-      var lugares = this.customers;
-      console.log(lugares);
+      this.postPvdr.postData(body, 'proses-api.php')
+        .subscribe(data => {
+          for (let customer of data.result) {
+            this.customers.push(customer);
+            this.nombre.push(customer.name_customer);
+            this.descripcion.push(customer.desc_customer);
+            this.latitud.push(customer.latitud_monumento);
+            this.longitud.push(customer.longitud_monumento);
+          }
+          resolve(true);
+        });
+      console.log(this.customers);
+      console.log(this.nombre,this.descripcion,this.latitud,this.longitud);
     });
-   
+
   }
- 
- 
+
+  
   ngOnInit() {
-  
-  
-  mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmNhc3Rhbm8xOTk2IiwiYSI6ImNrMXR0dWl3bDAzMmQzY282cjN5N212Z3gifQ.XsgCaqUwSxs1YIVeGK0idA';
 
-  this.geolocation.getCurrentPosition().then((resp) => {
-    // resp.coords.latitude
-    // resp.coords.longitude
+    mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmNhc3Rhbm8xOTk2IiwiYSI6ImNrMXR0dWl3bDAzMmQzY282cjN5N212Z3gifQ.XsgCaqUwSxs1YIVeGK0idA';
 
-    this.lat = parseFloat(`${ resp.coords.latitude }`); 
-    this.lng = parseFloat(`${ resp.coords.longitude }`);
-
-    // const coords = `${ resp.coords.latitude },${resp.coords.longitude}`;
-    
-  
-  var map = new mapboxgl.Map({
-    
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [ this.lng, this.lat ],
-    zoom: 15
-    }); 
-     
-    map.on('load', function () {
-    // Add a layer showing the places.
     
 
-    //traer la informacion de la base de datos 
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
 
-    map.addSource("lugares", {
-      "type": "geojson",
-      "data": this.lugares,
-  });
+      this.lat = parseFloat(`${resp.coords.latitude}`);
+      this.lng = parseFloat(`${resp.coords.longitude}`);
 
-  this.lugares.features.forEach(function(feature){
-    var latitud = feature.properties['latitud_monumento'];
-    var longitud = feature.properties['longitud_monumento'];
-    map.addLayer({
-      "id": "places",
-      "type": "symbol",
-      "source": {
-        "type": "geojson",
-        "data": {
-          "type": "FeatureCollection",
-          "features": [{
-            "type": "Feature",
-            "properties": {
-              "description": "",
-              "icon": "theatre"
-              },
-              "geometry": {
-                "type": "Point",
-                "coordinates": [latitud,longitud ]
-              }
-            }
-          ]
-         }
-      },
-      "layout": {
-        "icon-image": "{icon}-15",
-        "icon-allow-overlap": true
-        }
+      // const coords = `${ resp.coords.latitude },${resp.coords.longitude}`;
+
+
+      var map = new mapboxgl.Map({
+
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [this.lng, this.lat],
+        zoom: 15
       });
-       
-      // When a click event occurs on a feature in the places layer, open a popup at the
-      // location of the feature, with description HTML from its properties.
-      map.on('click', 'places', function (e) {
-      var coordinates = e.features[0].geometry.coordinates.slice();
-      var description = e.features[0].properties.description;
-       
-      // Ensure that if the map is zoomed out such that multiple
-      // copies of the feature are visible, the popup appears
-      // over the copy being pointed to.
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+
+      var geojson = {
+        type:'FeatureCollection',
+        features:[{
+          type:'Feature',
+          geometry:{
+            type:'point',
+            coordinates : [this.longitud, this.latitud]
+          },
+          properties:{
+            title: this.nombre,
+            description: this.descripcion
+          }
+        }]
       }
-       
-      new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(description)
-        .addTo(map);
-      });
-       
-      // Change the cursor to a pointer when the mouse is over the places layer.
-      map.on('mouseenter', 'places', function () {
-      map.getCanvas().style.cursor = 'pointer';
-      });    
-  });
+  
+      console.log(geojson)
+  
+      geojson.features.forEach(function(marker){
+        new mapboxgl.Marker()
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
 
-         
-    // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'places', function () {
-    map.getCanvas().style.cursor = '';
+
+        new mapboxgl.Marker()
+          .setLngLat(marker.geometry.coordinates)
+          .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+          .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+          .addTo(map);
+      })
+
+     
+
+
+
+      map.on('load', function () {
+      
+
+        map.addControl(new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          placeholder: 'Buscar lugares en Neiva',
+          bbox: [-75.310842, 2.898058, -75.247283, 2.960834], // Limites de Neiva
+          proximity: {
+            longitude: -75.285809,
+            latitude: 2.925553
+          }
+        }));
+        map.addControl(new mapboxgl.NavigationControl());
+
+        map.addControl(new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true,
+            timeout: 3
+          },
+          trackUserLocation: true
+        }))
+      });
+    }
+    ).catch((error) => {
+      console.log('Error getting location', error);
     });
 
-    map.addControl(new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      placeholder: 'Buscar lugares en Neiva',
-      bbox: [-75.310842, 2.898058, -75.247283, 2.960834], // Limites de Neiva
-        proximity: {
-          longitude: -75.285809,
-          latitude: 2.925553
-        } 
-    }));
-    map.addControl(new mapboxgl.NavigationControl());
 
-    map.addControl(new mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true,
-        timeout: 3
-      },
-        trackUserLocation: true
-    }))
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((data) => {
+      // data can be a set of coordinates, or an error (if an error occurred).
+      // data.coords.latitude
+      // data.coords.longitude
     });
   }
-  ).catch((error) => {
-    console.log('Error getting location', error);
-  });
-   
-  
-  let watch = this.geolocation.watchPosition();
-  watch.subscribe((data) => {
-  // data can be a set of coordinates, or an error (if an error occurred).
-  // data.coords.latitude
-  // data.coords.longitude
-  }); }
 }
