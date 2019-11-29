@@ -1,3 +1,5 @@
+mapas.page.ts
+
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ActivatedRoute } from '@angular/router';
@@ -23,6 +25,11 @@ export class MapasPage implements OnInit {
   items: any;
   subscribe: any;
   customers: any = [];
+  nombre: any = [];
+  descripcion : any = []; 
+  latitud = [];
+  longitud: any = [];
+
 
   ionViewWillEnter(): void {
     this.geolocation.watchPosition();
@@ -63,19 +70,26 @@ export class MapasPage implements OnInit {
         .subscribe(data => {
           for (let customer of data.result) {
             this.customers.push(customer);
+            this.nombre.push(customer.name_customer);
+            this.descripcion.push(customer.desc_customer);
+            this.latitud.push(parseFloat(customer.latitud_monumento));
+            this.longitud.push(parseFloat(customer.longitud_monumento));
           }
           resolve(true);
         });
-      var lugares = this.customers;
-      console.log(lugares);
+      console.log(this.customers);
+      console.log(this.nombre,this.descripcion,this.latitud,this.longitud);
+      console.log(this.nombre[0]);
     });
 
   }
 
+  
   ngOnInit() {
 
-
     mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmNhc3Rhbm8xOTk2IiwiYSI6ImNrMXR0dWl3bDAzMmQzY282cjN5N212Z3gifQ.XsgCaqUwSxs1YIVeGK0idA';
+
+    
 
     this.geolocation.getCurrentPosition().then((resp) => {
       // resp.coords.latitude
@@ -95,28 +109,92 @@ export class MapasPage implements OnInit {
         zoom: 15
       });
 
+      var geojson = {
+        type:'FeatureCollection',
+        features:[{
+          type:'Feature',
+          geometry:{
+            type:'point',
+            coordinates : [this.longitud, this.latitud]
+          },
+          properties:{
+            title: this.nombre,
+            description: this.descripcion
+          }
+        }]
+      }
+
+      console.log(this.latitud);
+
+      for(var i = 0; i < this.nombre.length; i++)
+      {
+        console.log('p');
+      }
+
+      var geojson2 = {};
+      
+      geojson2['type'] = 'FeatureCollection';
+      geojson2['features'] = [];
+      /*
+      geojson2['camilo2'] = [
+        {
+          type: "Feature",
+          properties: {
+            descripcion : 'this.nombre'
+          },
+          geometry: {
+            type: "point",
+            coordinates: [
+              12155515, 5665656
+            ]
+          }
+        }
+      ];  */
+      
+      
+      
+      for(var i = 0; i < this.longitud.length; i++)
+      {
+        console.log(this.latitud[i]);
+        geojson2['features'].push(
+          {
+            type: 'Feature',
+            properties: {
+              description: this.nombre[i]
+            },
+            geometry: {
+              type: 'point',
+              coordinates: [
+                this.longitud[i], this.latitud[i]
+              ]
+            }
+          }
+        );
+      } 
+
+      console.log(geojson2);
+  
+      console.log(geojson)
+  
+      geojson.features.forEach(function(marker){
+        new mapboxgl.Marker()
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+
+
+        new mapboxgl.Marker()
+          .setLngLat(marker.geometry.coordinates)
+          .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+          .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+          .addTo(map);
+      })
+
+     
+
 
 
       map.on('load', function () {
       
-        map.on('click', function(e) {
-          var features = map.loadCustomer(e.point, {
-            layers: ['lugares'] // replace this with the name of the layer
-          });
-
-          console.log(features);
-        
-          if (!features.length) {
-            return;
-          }
-        
-          var feature = features[0];
-        
-          var popup = new mapboxgl.Popup({ offset: [0, -15] })
-            .setLngLat(feature.geometry.coordinates)
-            .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
-            .addTo(map);
-        });
 
         map.addControl(new MapboxGeocoder({
           accessToken: mapboxgl.accessToken,
@@ -151,3 +229,38 @@ export class MapasPage implements OnInit {
     });
   }
 }
+
+
+
+/////
+
+
+*var geojson = {
+        type:'FeatureCollection',
+        features:[{
+          type:'Feature',
+          geometry:{
+            type:'point',
+            coordinates : [this.longitud, this.latitud]
+          },
+          properties:{
+            title: this.nombre,
+            description: this.descripcion
+          }
+        }]
+      }
+
+      
+      geojson.features.forEach(function(marker){
+        new mapboxgl.Marker()
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+
+
+        new mapboxgl.Marker()
+          .setLngLat(marker.geometry.coordinates)
+          .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+          .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+          .addTo(map);
+      })
+            */

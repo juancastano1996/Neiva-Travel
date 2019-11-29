@@ -25,13 +25,13 @@ export class MapasPage implements OnInit {
   customers: any = [];
   nombre: any = [];
   descripcion : any = []; 
-  latitud: any = [];
+  latitud = [];
   longitud: any = [];
 
 
   ionViewWillEnter(): void {
     this.geolocation.watchPosition();
-    this.loadCustomer();
+    //this.loadCustomer();
   }
 
   constructor(private geolocation: Geolocation, private postPvdr: PostProvider, public platform: Platform, activatedRoute: ActivatedRoute, private http: HttpClient, private proveedorService: ProveedorService, public navCtrl: NavController) {
@@ -59,27 +59,7 @@ export class MapasPage implements OnInit {
     }
   }
 
-  loadCustomer() {
-    return new Promise(resolve => {
-      let body = {
-        aksi: 'getdata3'
-      };
-      this.postPvdr.postData(body, 'proses-api.php')
-        .subscribe(data => {
-          for (let customer of data.result) {
-            this.customers.push(customer);
-            this.nombre.push(customer.name_customer);
-            this.descripcion.push(customer.desc_customer);
-            this.latitud.push(customer.latitud_monumento);
-            this.longitud.push(customer.longitud_monumento);
-          }
-          resolve(true);
-        });
-      console.log(this.customers);
-      console.log(this.nombre,this.descripcion,this.latitud,this.longitud);
-    });
-
-  }
+  
 
   
   ngOnInit() {
@@ -106,40 +86,6 @@ export class MapasPage implements OnInit {
         zoom: 15
       });
 
-      var geojson = {
-        type:'FeatureCollection',
-        features:[{
-          type:'Feature',
-          geometry:{
-            type:'point',
-            coordinates : [this.longitud, this.latitud]
-          },
-          properties:{
-            title: this.nombre,
-            description: this.descripcion
-          }
-        }]
-      }
-  
-      console.log(geojson)
-  
-      geojson.features.forEach(function(marker){
-        new mapboxgl.Marker()
-          .setLngLat(marker.geometry.coordinates)
-          .addTo(map);
-
-
-        new mapboxgl.Marker()
-          .setLngLat(marker.geometry.coordinates)
-          .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-          .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
-          .addTo(map);
-      })
-
-     
-
-
-
       map.on('load', function () {
       
 
@@ -162,6 +108,60 @@ export class MapasPage implements OnInit {
           trackUserLocation: true
         }))
       });
+       
+        return new Promise(resolve => {
+          let body = {
+            aksi: 'getdata3'
+          };
+          this.postPvdr.postData(body, 'proses-api.php')
+            .subscribe(data => {
+              for (let customer of data.result) {
+                this.customers.push(customer);
+                this.nombre.push(customer.name_customer);
+                this.descripcion.push(customer.desc_customer);
+                this.latitud.push(parseFloat(customer.latitud_monumento));
+                this.longitud.push(parseFloat(customer.longitud_monumento));
+              
+              }//trabajar bucles    
+              var geojson2 = {};
+          
+              geojson2['type'] = 'FeatureCollection';
+              geojson2['features'] = [];
+  
+              for(var i = 0; i < this.nombre.length; i++)
+          {
+            geojson2['features'].push(
+              {
+                type: 'Feature',
+                properties: {
+                  title: this.nombre[i],
+                  description: this.descripcion[i]
+                },
+                geometry: {
+                  type: 'point',
+                  coordinates: [ this.longitud[i], this.latitud[i] ]}
+              }
+            )
+          }
+          console.log(geojson2);
+         /* geojson2.features.forEach(function(marker){
+            new mapboxgl.Marker()
+              .setLngLat(marker.geometry.coordinates)
+              .addTo(map);
+    
+    
+            new mapboxgl.Marker()
+              .setLngLat(marker.geometry.coordinates)
+              .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+              .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+              .addTo(map);
+          })*/
+          
+            });
+            
+        });
+
+      
     }
     ).catch((error) => {
       console.log('Error getting location', error);
