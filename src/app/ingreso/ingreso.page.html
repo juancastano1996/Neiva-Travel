@@ -37,6 +37,7 @@
                     <ion-input name="password"
                                 type="password"
                                 [(ngModel)]= "loginUser.password"
+                                pattern="[a-zA-Z0-9_]{6,}"
                                 required></ion-input>
                   </ion-item>
 
@@ -96,6 +97,7 @@
                               <ion-input name="password"
                                           type="password"
                                           [(ngModel)]= "registroUser.password"
+                                          pattern="[a-zA-Z0-9_]{6,}"
                                           required></ion-input>
                               </ion-item>
                               <ion-item>
@@ -103,6 +105,7 @@
                               <ion-input name="password1"
                                           type="password"
                                           [(ngModel)]= "registroUser.confirm_password"
+                                          pattern="[a-zA-Z0-9_]{6,}"
                                           required></ion-input>
                               </ion-item>
   

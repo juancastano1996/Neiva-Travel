@@ -123,14 +123,46 @@ export class MapasPage implements OnInit {
                 this.longitud.push(parseFloat(customer.longitud_monumento));
               
               }//trabajar bucles    
-              var geojson2 = {};
+/*
+
+              var geojson = {
+                type:'FeatureCollection',
+                features:[{
+                  type:'Feature',
+                  geometry:{
+                    type:'point',
+                    coordinates : [this.longitud[1], this.latitud[1]]
+                  },
+                  properties:{
+                    title: this.nombre[1],
+                    description: this.descripcion[1]
+                  }
+                }]
+              }
+              console.log(geojson)
+        
+              
+              geojson.features.forEach(function(marker){
+                new mapboxgl.Marker()
+                  .setLngLat(marker.geometry.coordinates)
+                  .addTo(map);
+        
+        
+                new mapboxgl.Marker()
+                  .setLngLat(marker.geometry.coordinates)
+                  .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                  .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+                  .addTo(map);
+              })*/
           
-              geojson2['type'] = 'FeatureCollection';
-              geojson2['features'] = [];
+              var geojson = {};
+          
+              geojson['type'] = 'FeatureCollection';
+              geojson['features'] = [];
   
               for(var i = 0; i < this.nombre.length; i++)
           {
-            geojson2['features'].push(
+            geojson['features'].push(
               {
                 type: 'Feature',
                 properties: {
@@ -142,9 +174,10 @@ export class MapasPage implements OnInit {
                   coordinates: [ this.longitud[i], this.latitud[i] ]}
               }
             )
-          }
-          console.log(geojson2);
-         /* geojson2.features.forEach(function(marker){
+          } console.log(geojson);
+          
+         
+          geojson.features.forEach(function(marker){
             new mapboxgl.Marker()
               .setLngLat(marker.geometry.coordinates)
               .addTo(map);
@@ -155,7 +188,7 @@ export class MapasPage implements OnInit {
               .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
               .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
               .addTo(map);
-          })*/
+          })
           
             });
             
